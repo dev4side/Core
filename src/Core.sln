@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{F38F2DE1-05C8-4CA2-AA30-DBE596B2519B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{60E9E91B-9648-4922-B922-20160698D543}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Context", "Context", "{1C9CAF44-8FAA-415D-9717-75FB010CF04D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5FC2DBE9-0175-464B-AB59-10EED9B70A66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{977CC886-DD38-43A2-A5F3-81FB655B1878}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IO", "IO", "{4FD6A700-BE9C-4998-AB88-2CAF6F477213}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kernel", "Kernel", "{A6B97E96-EDB9-447A-AACA-016A81839DB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Log", "Log", "{0154DA8C-249A-471F-9854-C63D76443A7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Network", "Network", "{5964C39E-1247-4CC8-8124-6080A738C9B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{CB3B2AD5-95AB-4C47-853B-F6AABAFEBF64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation", "Validation", "{294D78D1-B696-479D-9127-99DA2C950F2F}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
