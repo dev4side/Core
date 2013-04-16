@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C0AA041-4C41-414D-8F56-272066E671FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Network</RootNamespace>
+    <AssemblyName>Core.Network</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_DbTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_DbTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEBUG_DB</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Core.Network.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CommunicationChannelUdp.cs" />
+    <Compile Include="Discovery\DiscoveredEventArgs.cs" />
+    <Compile Include="Discovery\DiscoveryClient.cs" />
+    <Compile Include="Discovery\DiscoveryServer.cs" />
+    <Compile Include="ITransmissionClient.cs" />
+    <Compile Include="ITransmissionClientFactory.cs" />
+    <Compile Include="ITransmissionRouter.cs" />
+    <Compile Include="NetworkServerTcp.cs" />
+    <Compile Include="NetworkClientTcp.cs" />
+    <Compile Include="NetworkServerTcpRouter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\DynamicFormatterBinding.cs" />
+    <Compile Include="Serialization\GenericFormatter.cs" />
+    <Compile Include="ICommunicationChannel.cs" />
+    <Compile Include="Discovery\Interfaces\IDiscoverable.cs" />
+    <Compile Include="Discovery\Interfaces\IDiscoverer.cs" />
+    <Compile Include="Serialization\Serializable.cs" />
+    <Compile Include="Serialization\SerializedObjectCloner.cs" />
+    <Compile Include="CommunicationChannelTcp.cs" />
+    <Compile Include="Keepalive\InjectorInfo.cs" />
+    <Compile Include="Keepalive\Interfaces\IWatchable.cs" />
+    <Compile Include="Keepalive\KeepAliveClient.cs" />
+    <Compile Include="Keepalive\KeepAliveServer.cs" />
+    <Compile Include="TransmissionEnvelope.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\lib\ninject\2.2.0.0\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kernel\Core.Kernel\Core.Kernel.csproj">
+      <Project>{0C8747B4-FD9D-4253-A67A-BC9E79462088}</Project>
+      <Name>Core.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Log\Core.Log\Core.Log.csproj">
+      <Project>{B0B69693-4E8E-4741-80B4-AC1B6227AC61}</Project>
+      <Name>Core.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
