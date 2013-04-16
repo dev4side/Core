@@ -1,0 +1,7 @@
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\bin\Debug\Core.Log.dll
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\bin\Debug\Core.Log.pdb
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\bin\Debug\Ninject.dll
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\bin\Debug\Ninject.Extensions.Interception.dll
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\bin\Debug\Ninject.Extensions.Interception.LinFu.dll
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\obj\Debug\Core.Log.dll
+C:\Users\Miro\Documents\GitHub\Nexo\scr\Core\Log\Core.Log\obj\Debug\Core.Log.pdb
