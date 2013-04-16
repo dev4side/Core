@@ -1,8 +1,0 @@
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\bin\Debug_DbTest\Core.Log.dll
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\bin\Debug_DbTest\Core.Log.pdb
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\bin\Debug_DbTest\Ninject.dll
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\bin\Debug_DbTest\Ninject.Extensions.Interception.dll
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\obj\Debug_DbTest\Core.Log.csprojResolveAssemblyReference.cache
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\obj\Debug_DbTest\Core.Log.dll
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\obj\Debug_DbTest\Core.Log.pdb
-C:\Users\Miro\Documents\GitHub\Core\src\Log\Core.Log\bin\Debug_DbTest\Ninject.Extensions.Interception.LinFu.dll
