@@ -71,10 +71,6 @@
       <Project>{a8a284c4-5d2a-4081-96e1-fe055f8fa182}</Project>
       <Name>Core.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core.Cache\Core.Cache.csproj">
-      <Project>{FBFF1186-4C75-4F79-8A9F-B3C8D71F1A43}</Project>
-      <Name>Core.Cache</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Kernel\Core.Kernel\Core.Kernel.csproj">
       <Project>{0C8747B4-FD9D-4253-A67A-BC9E79462088}</Project>
       <Name>Core.Kernel</Name>
