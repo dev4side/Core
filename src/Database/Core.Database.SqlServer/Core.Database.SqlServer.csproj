@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7B9FD00D-B9FD-4D03-97CF-07087A641106}</ProjectGuid>
+    <ProjectGuid>{97DCD86E-6481-46C2-BDEA-1CB7A8128130}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Business</RootNamespace>
-    <AssemblyName>Core.Business</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>Core.Database.SqlServer</RootNamespace>
+    <AssemblyName>Core.Database.SqlServer</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -37,7 +37,7 @@
     <DefineConstants>TRACE;DEBUG;DEBUG_DB</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Debug\Core.Business.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisLogFile>bin\Debug\Core.Database.SqlServer.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
@@ -49,42 +49,19 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\..\..\lib\ninject\2.2.0.0\Ninject.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\newtonsoft.json\4.5.7\Net20\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ManagerException.cs" />
-    <Compile Include="Factory\IManagerFactory.cs" />
-    <Compile Include="Factory\ManagerFactory.cs" />
-    <Compile Include="Manager\BaseManager.cs" />
-    <Compile Include="Manager\IBaseManager.cs" />
-    <Compile Include="NinjectModules\MangerFactoryModule.cs" />
+    <Compile Include="JsonTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Core.Common\Core.Common.csproj">
-      <Project>{a8a284c4-5d2a-4081-96e1-fe055f8fa182}</Project>
-      <Name>Core.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\Core.Data\Core.Data.csproj">
-      <Project>{542ccc12-a1fb-4ceb-be86-a22d5b77f65f}</Project>
-      <Name>Core.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Kernel\Core.Kernel\Core.Kernel.csproj">
-      <Project>{0C8747B4-FD9D-4253-A67A-BC9E79462088}</Project>
-      <Name>Core.Kernel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
