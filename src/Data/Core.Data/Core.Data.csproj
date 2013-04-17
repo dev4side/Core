@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{542CCC12-A1FB-4CEB-BE86-A22D5B77F65F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Data</RootNamespace>
+    <AssemblyName>Core.Data</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_DbTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_DbTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEBUG_DB</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Core.Data.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\CloneExcludeAttribute.cs" />
+    <Compile Include="BaseEntity\BaseEntity.cs" />
+    <Compile Include="Exceptions\Factory\TransactionalExceptionAbstractFactory.cs" />
+    <Compile Include="Exceptions\Hql\HqlException.cs" />
+    <Compile Include="Exceptions\TransactionDeleteException.cs" />
+    <Compile Include="Helpers\EntityCloner.cs" />
+    <Compile Include="Helpers\EntityCopier.cs" />
+    <Compile Include="Interfaces\Entity\IClone.cs" />
+    <Compile Include="Interfaces\Entity\ICopy.cs" />
+    <Compile Include="Interfaces\Entity\IDeepCopy.cs" />
+    <Compile Include="Interfaces\Repository\IGroupBy.cs" />
+    <Compile Include="Interfaces\Repository\IOrdination.cs" />
+    <Compile Include="Objects\Repository.cs" />
+    <Compile Include="OrmConfiguration\OrmConfigurationElement.cs" />
+    <Compile Include="OrmConfiguration\OrmConfigurationElementCollection.cs" />
+    <Compile Include="OrmConfiguration\Factory\OrmConfigurationFactory.cs" />
+    <Compile Include="OrmConfiguration\OrmConfigurationSectionHandler.cs" />
+    <Compile Include="OrmConfiguration\OrmTypeMapElement.cs" />
+    <Compile Include="OrmConfiguration\OrmTypeMapElementCollection.cs" />
+    <Compile Include="Exceptions\OrmConfigurationException.cs" />
+    <Compile Include="Exceptions\RepositoryException.cs" />
+    <Compile Include="Exceptions\TransactionException.cs" />
+    <Compile Include="Helpers\InverseTrueChildsHelper.cs" />
+    <Compile Include="Interfaces\Factory\IUnitOfWorkFactoryTyped.cs" />
+    <Compile Include="Interfaces\Entity\IDomainEntity.cs" />
+    <Compile Include="Interfaces\Repository\IJoin.cs" />
+    <Compile Include="OrmConfiguration\Interfaces\IOrmConfiguration.cs" />
+    <Compile Include="OrmConfiguration\Interfaces\IOrmConfigurationCollection.cs" />
+    <Compile Include="Interfaces\Repository\IProjection.cs" />
+    <Compile Include="Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Interfaces\Factory\IRepositoryFactoryGeneric.cs" />
+    <Compile Include="Interfaces\Repository\IRestriction.cs" />
+    <Compile Include="Interfaces\Repository\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\Factory\IUnitOfWorkFactory.cs" />
+    <Compile Include="Mappers\OrmConfigurationMapper.cs" />
+    <Compile Include="Objects\Collections\ChildsEntityList.cs" />
+    <Compile Include="Objects\Collections\OrmConfigurationCollection.cs" />
+    <Compile Include="Objects\OrmConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\lib\ninject\2.2.0.0\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Log\Core.Log\Core.Log.csproj">
+      <Project>{B0B69693-4E8E-4741-80B4-AC1B6227AC61}</Project>
+      <Name>Core.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

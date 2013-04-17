@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using Core.Data.Configuration;
+using Core.Data.Exceptions;
+
+namespace Core.Data
+{
+    public class OrmConfigurationCollection : List<IOrmConfiguration>, IOrmConfigurationCollection
+    {
+        internal OrmConfigurationCollection()
+        {
+                
+        }
+
+       public IOrmConfiguration TryGetOrmConfigration(Type type)
+       {
+           var typeAsStrig = type.ToString();
+           foreach (IOrmConfiguration ormConfiguration in this)
+           {
+               foreach (var compatibleType in ormConfiguration.ControlTypes)
+               {
+                   if (compatibleType.Equals(typeAsStrig))
+                       return ormConfiguration;
+               }
+           }
+           throw new OrmConfigurationException(String.Format("The [{0}] type has no defined configuration in the current config. " +
+                                    "Please check that your config contains a defined rtype under <ormConfiguration><includeTypes> <type name=\"NAME\"/>", typeAsStrig));
+       }
+    }
+
+   
+}

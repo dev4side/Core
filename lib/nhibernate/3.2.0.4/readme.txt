@@ -1,0 +1,1 @@
+questa è la versione utilizzata dal nexo cms
