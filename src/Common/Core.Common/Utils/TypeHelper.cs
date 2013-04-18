@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Reflection;
 
-namespace Core.Common
+namespace Core.Common.Utils
 {
 	public static class TypeHelperExtensions
 	{

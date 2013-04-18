@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Core.Data.Configuration
+namespace Core.Data.OrmConfiguration
 {
     public class OrmConfigurationSectionHandler : ConfigurationSection
     {

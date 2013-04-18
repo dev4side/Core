@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Core.Data.Configuration;
+using Core.Data.OrmConfiguration.Interfaces;
 
-namespace Core.Data
+namespace Core.Data.Objects
 {
     public class OrmConfiguration : IOrmConfiguration
     {
         #region IOrmCOnfigration implementation
+        
         public string Name { get; private set; }
         public string DatabaseName { get; private set; }
         public FileInfo ConfigurationFile { get; private set; }
@@ -16,6 +17,7 @@ namespace Core.Data
         {
             get { return ConfigurationFile.Name; }
         } 
+        
         #endregion
 
         public OrmConfiguration(string name, string configrationFilePath, string databaseName)

@@ -50,11 +50,10 @@ namespace Core.Common.Adapters
                                 propertyInfo.SetValue(result, Converter.ConvertToPropertyType(registryKeyValue, propertyInfo.PropertyType, registryKeyProperty.BooleanConversion), null);
                             }
                         }
-
                     }
-
                 }
             }
+
             return result as TRegistryObject;
         }
 
@@ -88,7 +87,6 @@ namespace Core.Common.Adapters
                             }
                         }
                     }
-
                 }
             }
         }

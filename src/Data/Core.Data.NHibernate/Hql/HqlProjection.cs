@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Core.Data.Exceptions.Hql;
+using Core.Data.Interfaces.Repository;
 
 namespace Core.Data.NHibernate.Hql
 {

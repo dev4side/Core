@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
+﻿using System.Configuration;
 
-namespace Core.Data.Configuration
+namespace Core.Data.OrmConfiguration
 {
     public class OrmTypeMapElement : ConfigurationElement
     {
-
         [ConfigurationProperty("name", IsRequired = true)]
         public string Name
         {

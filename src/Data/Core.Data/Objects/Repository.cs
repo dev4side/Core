@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Core.Data.Exceptions;
+using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Factory;
+using Core.Data.Interfaces.Repository;
 using Core.Log;
 using Ninject;
 
-namespace Core.Data
+namespace Core.Data.Objects
 {
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class, IDomainEntity<TKey>
     {
@@ -86,16 +90,16 @@ namespace Core.Data
         public IQueryable<TEntity> GetAll()
         {
             var result = this.UnitOfWork.Linq<TEntity>();
-            // ReSharper disable RemoveToList.2
+
             // è neccessario fare result.ToList().Count perche usando NHibenrate con il driver Jet per access, viene generata exception
-#if DEGUB
+#if DEBUG
             if(Log.IsDebugEnabled())
             {
                 var resultAsList = result.ToList();
                 Log.Debug("GetAll {0} returned {1} entities", this.CurrentTypeName, resultAsList.Count.ToString(CultureInfo.InvariantCulture));
             }
 #endif
-            // ReSharper restore RemoveToList.2
+            
             return result;
         }
 

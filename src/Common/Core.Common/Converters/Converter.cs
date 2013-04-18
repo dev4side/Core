@@ -3,9 +3,11 @@ using Core.Common.Utils;
 
 namespace Core.Common.Converters
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Converter
     {
-        
         /// <summary>
         /// Check if the given object is a boolean, and if true, applies inverse conversion with the given BooleanConversion rule
         /// This is the opposit of ConvertToBoolean
@@ -30,10 +32,9 @@ namespace Core.Common.Converters
                         return Convert.ToBoolean(value);
                 }
             }
+            
             return value;
-
         }
-
 
         /// <summary>
         /// Converts an object into a requested type.
@@ -53,10 +54,10 @@ namespace Core.Common.Converters
             }
         }
 
-
         /// <summary>
         /// Converts an object into a bool by follwoing the specified BooleanConversion rule
         /// This is the opposit of TryInverseBooleanConvertion
+        /// </summary>
         public static bool ConvertToBoolean(object value, BooleanConversion booleanConversion)
         {
             switch (booleanConversion)

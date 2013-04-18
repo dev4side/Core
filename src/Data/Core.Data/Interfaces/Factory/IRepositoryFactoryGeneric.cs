@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Repository;
 
-namespace Core.Data
+namespace Core.Data.Interfaces.Factory
 {
     public interface IRepositoryFactoryGeneric<TKey>
     {

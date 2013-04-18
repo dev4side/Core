@@ -1,5 +1,4 @@
-﻿
-namespace Core.Data
+﻿namespace Core.Data.Interfaces.Entity
 {
     /// <summary>
     /// contratto per definire un domain object del repository

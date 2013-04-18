@@ -9,7 +9,6 @@ namespace Core.Common.Mappers
         public string Key { get; private set; }
         public string Path { get; private set; }
 
-
         public MapToRegistryKeyProperty(string path, string key)
         {
             Path = path;
@@ -17,8 +16,5 @@ namespace Core.Common.Mappers
         }
 
         public BooleanConversion BooleanConversion { get; set; }
-
-     
-
     }
 }

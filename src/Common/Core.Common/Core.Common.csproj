@@ -70,6 +70,7 @@
     <Compile Include="Utils\BooleanConversion.cs" />
     <Compile Include="Utils\EnumExtensions.cs" />
     <Compile Include="Utils\StringEnum.cs" />
+    <Compile Include="Utils\StringValueAttribute.cs" />
     <Compile Include="Utils\TypeHelper.cs" />
   </ItemGroup>
   <ItemGroup>

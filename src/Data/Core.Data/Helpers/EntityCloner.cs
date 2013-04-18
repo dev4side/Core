@@ -15,7 +15,6 @@ namespace Core.Data.Helpers
 
             foreach (PropertyInfo propertyInfo in props)
             {
-
                 if (propertyInfo.GetCustomAttributes(true).Contains(new CloneExcludeAttribute()))
                     continue;
                 var entityPropertyToFill = entityType.GetProperty(propertyInfo.Name);

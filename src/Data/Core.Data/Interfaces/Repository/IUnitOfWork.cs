@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Core.Data
+namespace Core.Data.Interfaces.Repository
 {
     public interface IUnitOfWork: IDisposable
     {

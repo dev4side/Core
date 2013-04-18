@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 
-namespace Core.Data
+namespace Core.Data.Objects.Collections
 {
     public class ChildsEntityList<T> : IList<T>
     {
@@ -19,7 +15,6 @@ namespace Core.Data
             _childPropertyToInverse = childPropertyToInverse;
             _parentEntity = parentEntity;
             _list = new List<T>();
-
         }
 
         public void Add(T obj)
@@ -27,8 +22,7 @@ namespace Core.Data
             SetParentToChild(obj);
             _list.Add(obj);
         }
-
-
+        
         public int IndexOf(T item)
         {
             return _list.IndexOf(item);
@@ -54,8 +48,7 @@ namespace Core.Data
                 _list[index] = value;
             }
         }
-
-
+        
         public void Clear()
         {
            _list.Clear();

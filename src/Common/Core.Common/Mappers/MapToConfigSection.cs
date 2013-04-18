@@ -11,6 +11,5 @@ namespace Core.Common.Mappers
 		{
 			XPathExpr = xpathExpr;
 		}
-
 	}
 }

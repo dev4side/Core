@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Data
+namespace Core.Data.Exceptions
 {
     public class RepositoryException : Exception
     {

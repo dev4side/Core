@@ -1,4 +1,7 @@
 ﻿using System;
+using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Factory;
+using Core.Data.Interfaces.Repository;
 using Ninject;
 using Ninject.Parameters;
 

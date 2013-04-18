@@ -11,14 +11,12 @@ namespace Core.Common.Adapters
 {
 	public class ConfigManager
 	{
-
         [Inject]
         public ILog<ConfigManager> Log { get; set; }
 
 		private readonly string _configPath;
 		private readonly XmlDocument _appConfig = new XmlDocument();
 		private readonly XPathNavigator _navigator = null;
-
 
 		public ConfigManager(string configPath)
 		{
@@ -99,7 +97,6 @@ namespace Core.Common.Adapters
 				throw;
 			}
 		}
-
 
 		public void WriteConfigObject<TConfigObj>(TConfigObj configObj) where TConfigObj : class, new()
 		{

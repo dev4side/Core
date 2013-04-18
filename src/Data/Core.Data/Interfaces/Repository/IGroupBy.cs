@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Core.Data
+﻿namespace Core.Data.Interfaces.Repository
 {
     public interface IGroupBy
     {

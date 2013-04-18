@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Factory;
 
-namespace Core.Data
+namespace Core.Data.Interfaces.Repository
 {
    /// <summary>
     ///  Interfaccia di un repository generico

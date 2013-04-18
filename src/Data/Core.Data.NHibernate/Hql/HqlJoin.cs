@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Data.Interfaces.Repository;
 
 namespace Core.Data.NHibernate.Hql
 {

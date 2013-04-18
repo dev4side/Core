@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Core.Data
+﻿namespace Core.Data.Interfaces.Entity
 {
-    public interface IClone<T>
+    public interface IClone<out T>
     {
         T CloneAsNew();
     }

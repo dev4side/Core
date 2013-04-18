@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace Core.Data.Configuration
+namespace Core.Data.OrmConfiguration.Interfaces
 {
     public interface IOrmConfiguration
     {

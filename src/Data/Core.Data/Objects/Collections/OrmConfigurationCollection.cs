@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.Data.Configuration;
 using Core.Data.Exceptions;
+using Core.Data.OrmConfiguration.Interfaces;
 
-namespace Core.Data
+namespace Core.Data.Objects.Collections
 {
     public class OrmConfigurationCollection : List<IOrmConfiguration>, IOrmConfigurationCollection
     {

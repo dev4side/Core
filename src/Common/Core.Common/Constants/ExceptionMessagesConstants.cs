@@ -2,6 +2,9 @@
 
 namespace Core.Common.Constants
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ExceptionMessagesConstants
     {
         public const string UNIT_OF_WORK_DISPOSED_MESSAGE =

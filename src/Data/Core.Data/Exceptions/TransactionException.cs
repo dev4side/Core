@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Core.Data
+namespace Core.Data.Exceptions
 {
     public class TransactionException : RepositoryException
     {

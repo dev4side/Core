@@ -1,4 +1,7 @@
 ﻿using System;
+using Core.Data.Exceptions;
+using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Repository;
 
 namespace Core.Data.NHibernate
 {

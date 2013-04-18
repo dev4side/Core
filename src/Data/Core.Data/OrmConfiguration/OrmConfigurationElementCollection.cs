@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
+﻿using System.Configuration;
 
-namespace Core.Data.Configuration
+namespace Core.Data.OrmConfiguration
 {
-
     [ConfigurationCollection(typeof(OrmConfigurationElementCollection), AddItemName = "ormConfiguration")]
     public class OrmConfigurationElementCollection : ConfigurationElementCollection
     {
-
-
         public OrmConfigurationElement this[int index]
         {
             get
@@ -26,7 +19,6 @@ namespace Core.Data.Configuration
             }
         }
 
-
         protected override ConfigurationElement CreateNewElement()
         {
             return new OrmConfigurationElement();
@@ -36,6 +28,5 @@ namespace Core.Data.Configuration
         {
             return ((OrmConfigurationElement)element).Name;
         }
-
     }
 }

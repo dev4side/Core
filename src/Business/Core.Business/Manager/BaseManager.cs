@@ -1,9 +1,18 @@
-﻿using Core.Data;
+﻿using Core.Business.Factory;
+using Core.Data;
+using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Factory;
+using Core.Data.Interfaces.Repository;
 using Core.Kernel;
 using Ninject;
 
-namespace Core.Business
+namespace Core.Business.Manager
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="TKey"></typeparam>
     public abstract class BaseManager<TEntity, TKey> where TEntity : class, IDomainEntity<TKey>
     {
         private IRepository<TEntity, TKey> _currentRepository;
@@ -21,11 +30,8 @@ namespace Core.Business
         
         protected IRepository<TEntity, TKey> Repository
         {
-            get
-            {
-                if (_currentRepository == null)
-                    _currentRepository = RepositoryFactory.GetRepository<TEntity>(CurrentUnitOfWork);
-                return _currentRepository;
+            get {
+                return _currentRepository ?? (_currentRepository = RepositoryFactory.GetRepository<TEntity>(CurrentUnitOfWork));
             }
         }
 

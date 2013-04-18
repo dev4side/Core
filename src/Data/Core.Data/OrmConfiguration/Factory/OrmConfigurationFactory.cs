@@ -2,8 +2,10 @@
 using System.Configuration;
 using Core.Data.Exceptions;
 using Core.Data.Mappers;
+using Core.Data.Objects.Collections;
+using Core.Data.OrmConfiguration.Interfaces;
 
-namespace Core.Data.Configuration
+namespace Core.Data.OrmConfiguration.Factory
 {
     public class OrmConfigurationFactory
     {

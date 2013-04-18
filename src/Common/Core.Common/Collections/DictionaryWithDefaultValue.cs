@@ -2,6 +2,11 @@
 
 namespace Core.Common.Collections
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
     public class DictionaryWithDefaultValue<TKey, TValue> : Dictionary<TKey, TValue>
     {
         public TValue DefaultValue { get; set; }

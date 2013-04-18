@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Core.Data.Configuration;
+using Core.Data.Objects.Collections;
+using Core.Data.OrmConfiguration;
+using Core.Data.OrmConfiguration.Interfaces;
 
 namespace Core.Data.Mappers
 {
@@ -18,10 +19,11 @@ namespace Core.Data.Mappers
 
         internal static IOrmConfiguration GetConfiguration(OrmConfigurationElement ormConfigurationElement)
         {
-            var result =  new OrmConfiguration(ormConfigurationElement.Name, ormConfigurationElement.Path, ormConfigurationElement.DatabaseName)
-                              {
-                                  ControlTypes = GetSupportedTypes(ormConfigurationElement)
-                              };
+            var result = new Core.Data.Objects.OrmConfiguration(
+                ormConfigurationElement.Name, ormConfigurationElement.Path, ormConfigurationElement.DatabaseName)
+                             {
+                                 ControlTypes = GetSupportedTypes(ormConfigurationElement)
+                             };
             return result;
         }
 

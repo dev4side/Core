@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Core.Data.Interfaces.Repository;
 using Core.Log;
 using NHibernate.Engine;
 using NHibernate.Engine.Query;

@@ -1,4 +1,3 @@
-
 namespace Core.Common.Utils
 {
     public enum BooleanConversion

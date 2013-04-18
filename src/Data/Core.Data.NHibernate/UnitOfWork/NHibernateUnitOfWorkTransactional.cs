@@ -1,7 +1,9 @@
 ﻿using System;
+using Core.Data.Exceptions;
 using Core.Data.Exceptions.Factory;
 using NHibernate;
 using NHibernate.Exceptions;
+using TransactionException = Core.Data.Exceptions.TransactionException;
 
 namespace Core.Data.NHibernate
 {

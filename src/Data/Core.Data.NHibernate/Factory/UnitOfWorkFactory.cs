@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using Core.Data.Interfaces.Factory;
+using Core.Data.Interfaces.Repository;
+using Ninject;
 
 namespace Core.Data.NHibernate.Factory
 {

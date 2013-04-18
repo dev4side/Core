@@ -1,5 +1,6 @@
-﻿
-namespace Core.Data
+﻿using Core.Data.Interfaces.Repository;
+
+namespace Core.Data.Interfaces.Factory
 {
     public interface IUnitOfWorkFactory
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Data.Interfaces.Repository;
 
 namespace Core.Data.NHibernate.Hql
 {

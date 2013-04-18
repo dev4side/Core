@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Data.Exceptions;
+using Core.Data.Interfaces.Entity;
+using Core.Data.Interfaces.Factory;
+using Core.Data.Interfaces.Repository;
 using Ninject;
 using Core.Log;
 using System.Globalization;

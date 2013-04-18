@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Core.Data.Configuration;
+using Core.Data.OrmConfiguration.Interfaces;
 using NHibernate;
 
 namespace Core.Data.NHibernate

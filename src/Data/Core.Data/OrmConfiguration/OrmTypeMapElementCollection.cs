@@ -1,7 +1,6 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 
-namespace Core.Data.Configuration
+namespace Core.Data.OrmConfiguration
 {
     [ConfigurationCollection(typeof(OrmTypeMapElementCollection), AddItemName = "type")]
     public class OrmTypeMapElementCollection : ConfigurationElementCollection
