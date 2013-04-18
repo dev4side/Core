@@ -66,8 +66,7 @@ namespace Core.Context.Web.Entity
         {
            return _membershipUser.ChangePasswordQuestionAndAnswer(password, question, answer);
         }
-
-
+        
         public string ResetPassword()
         {
            return _membershipUser.ResetPassword();
