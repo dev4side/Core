@@ -3,7 +3,7 @@ using Ninject.Extensions.Interception;
 using Ninject.Extensions.Interception.Attributes;
 using Ninject.Extensions.Interception.Request;
 
-namespace Core.Services.Consinstency
+namespace Core.Services.Consinstency.AOP
 {
     public class WcfExceptionInterceptorAttribute: InterceptAttribute
     {

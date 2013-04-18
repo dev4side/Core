@@ -29,7 +29,8 @@ namespace Core.Data.Exceptions.Factory
              {
                  case 547:
                      return new TransactionDeleteException("Reference contraints conflit", exceptionToParse);
-                 default: return new TransactionException("Unable commit transaction. A roll back will be tryied", exceptionToParse);
+                 default: 
+                     return new TransactionException("Unable commit transaction. A roll back will be tryied", exceptionToParse);
              }
          }
     }
