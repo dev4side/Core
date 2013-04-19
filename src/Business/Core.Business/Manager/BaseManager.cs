@@ -46,12 +46,12 @@ namespace Core.Business.Manager
             return RepositoryFactory.GetRepository<TOtherEntity>(CurrentUnitOfWork);
         }
         
-        public TEntity GetById(TKey id)
+        protected TEntity GetById(TKey id)
         {
             return Repository.GetById(id);
         }
 
-        public TEntity GetByIdOrNull(TKey id)
+        protected TEntity GetByIdOrNull(TKey id)
         {
             return Repository.GetByIdOrNull(id);
         }

@@ -10,4 +10,3 @@ of data access code that the developer must write.
 == How this component can help you? ==
 
 == How can you use it? ==
-

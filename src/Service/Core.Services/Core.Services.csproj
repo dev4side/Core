@@ -84,6 +84,7 @@
     <Compile Include="Encoding\Attributes\EncodeHtmlAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolving\WcfTypeResolverManager.cs" />
+    <Compile Include="Service\BaseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Ninject">
@@ -109,6 +110,10 @@
     <ProjectReference Include="..\..\Common\Core.Common\Core.Common.csproj">
       <Project>{A8A284C4-5D2A-4081-96E1-FE055F8FA182}</Project>
       <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Core.Data\Core.Data.csproj">
+      <Project>{542CCC12-A1FB-4CEB-BE86-A22D5B77F65F}</Project>
+      <Name>Core.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Kernel\Core.Kernel\Core.Kernel.csproj">
       <Project>{0C8747B4-FD9D-4253-A67A-BC9E79462088}</Project>
