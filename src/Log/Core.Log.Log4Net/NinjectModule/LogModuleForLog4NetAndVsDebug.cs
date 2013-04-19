@@ -1,9 +1,6 @@
-﻿using System.Diagnostics;
-using Ninject.Modules;
-
-namespace Core.Log.Log4Net
+﻿namespace Core.Log.Log4Net.NinjectModule
 {
-    public class Log4NetAndVsModule : NinjectModule
+    public class Log4NetAndVsModule : Ninject.Modules.NinjectModule
     {
         public override void Load()
         {
@@ -13,7 +10,6 @@ namespace Core.Log.Log4Net
 #else
               Bind(typeof(ILog<>)).To(typeof(Log4NetLogger<>)).InSingletonScope();
 #endif
-
         }
     }
 }

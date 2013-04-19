@@ -5,7 +5,7 @@ using Ninject.Extensions.Interception.Attributes;
 using Ninject.Extensions.Interception.Request;
 using Ninject.Parameters;
 
-namespace Core.Validation
+namespace Core.Validation.AOP
 {
     public class DtoValidatorAttribute : InterceptAttribute
     {

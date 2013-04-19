@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 using System.Linq;
-using Ninject;
 using System.Xml;
 using System.Xml.XPath;
 using Core.Log;
 using Core.Common.Mappers;
+using Ninject;
 
 namespace Core.Common.Adapters
 {

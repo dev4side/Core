@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\..\src\Business\Core.Business\bin\Debug_DbTest\Ninject.dll</HintPath>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.MockingKernel">
+      <HintPath>..\..\lib\ninject.mockingkernel\3.0.2\net45-full\Ninject.MockingKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\nunit\2.6.2\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,8 +52,27 @@
   <ItemGroup>
     <Compile Include="BaseFixtures\BaseDbDependentFixture.cs" />
     <Compile Include="BaseFixtures\BaseMockObjectFixture.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Constants\NUnitCategories.cs" />
+    <Compile Include="CustomProperty\Category.cs" />
+    <Compile Include="CustomProperty\CategoryAttribute.cs" />
+    <Compile Include="CustomProperty\CategoryType.cs" />
+    <Compile Include="CustomProperty\DesignRequirementAttribute.cs" />
+    <Compile Include="CustomProperty\IdTestAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Business\Core.Business\Core.Business.csproj">
+      <Project>{7B9FD00D-B9FD-4D03-97CF-07087A641106}</Project>
+      <Name>Core.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Data\Core.Data\Core.Data.csproj">
+      <Project>{542CCC12-A1FB-4CEB-BE86-A22D5B77F65F}</Project>
+      <Name>Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Kernel\Core.Kernel\Core.Kernel.csproj">
+      <Project>{0C8747B4-FD9D-4253-A67A-BC9E79462088}</Project>
+      <Name>Core.Kernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

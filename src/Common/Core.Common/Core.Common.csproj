@@ -53,7 +53,7 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Adapters\ConfigObjectAdapter.cs" />
+    <Compile Include="Adapters\ConfigManager.cs" />
     <Compile Include="Adapters\RegistryHelper.cs" />
     <Compile Include="Adapters\RegistryObjectAdapter.cs" />
     <Compile Include="Cache\Exceptions\CacheException.cs" />

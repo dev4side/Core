@@ -4,11 +4,10 @@ using System.Reflection;
 using System.Web;
 using Core.Kernel;
 using Core.Log;
-using Core.Services.Encoding.AOP;
 using Core.Services.Encoding.Attributes;
 using Ninject.Extensions.Interception;
 
-namespace Core.Services.Encoding
+namespace Core.Services.Encoding.AOP
 {
     public class EncodingHandler : SimpleInterceptor
     {

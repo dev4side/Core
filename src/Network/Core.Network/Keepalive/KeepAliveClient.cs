@@ -9,7 +9,6 @@ using Core.Kernel;
 using Core.Log;
 using Ninject;
 
-
 namespace Core.Network.Keepalive
 {
 	public class KeepAliveClient
