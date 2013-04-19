@@ -2,8 +2,9 @@
 using Core.Data.Exceptions;
 using Core.Data.Interfaces.Entity;
 using Core.Data.Interfaces.Repository;
+using Core.Data.NHibernate.UnitOfWork;
 
-namespace Core.Data.NHibernate
+namespace Core.Data.NHibernate.Repository
 {
     public class NHibernateRepositoryOrmConfigurated<TEntity, TKey> : BaseNHibernateRepository<TEntity, TKey>
        where TEntity : class, IDomainEntity<TKey>

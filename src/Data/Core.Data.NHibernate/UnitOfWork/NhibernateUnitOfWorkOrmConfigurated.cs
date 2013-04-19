@@ -3,7 +3,7 @@ using System.Linq;
 using Core.Data.OrmConfiguration.Interfaces;
 using NHibernate;
 
-namespace Core.Data.NHibernate
+namespace Core.Data.NHibernate.UnitOfWork
 {
     public class NhibernateUnitOfWorkOrmConfigurated : NHibBaseUnitOfWork
     {

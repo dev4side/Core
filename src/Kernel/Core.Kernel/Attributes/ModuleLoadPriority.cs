@@ -6,6 +6,7 @@ namespace Core.Kernel.Attributes
     public class ModuleLoadPriorityAttribute : Attribute
     {
         public int Priority { get; set; }
+        
         public ModuleLoadPriorityAttribute(int priority)
         {
             this.Priority = priority;

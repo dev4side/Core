@@ -3,5 +3,5 @@
     /// <summary>
     /// Marker class for identify manager classes
     /// </summary>
-    public interface IMangerMarker { }
+    public interface IManagerMarker { }
 }

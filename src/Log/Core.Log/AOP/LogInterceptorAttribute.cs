@@ -7,11 +7,11 @@ using Ninject.Parameters;
 
 namespace Core.Log.AOP
 {
-    public class LogInterceptorAttribute: InterceptAttribute
+    public class LogInterceptorAttribute : InterceptAttribute
     {
         private Type _loggerType;
         private const int ORDER = 1;
-       
+
         public LogInterceptorAttribute(Type loggerType)
         {
             _loggerType = loggerType;
@@ -20,7 +20,7 @@ namespace Core.Log.AOP
 
         public override IInterceptor CreateInterceptor(IProxyRequest request)
         {
-            var generic = typeof(LogInterceptor<>);  
+            var generic = typeof(LogInterceptor<>);
             var specific = generic.MakeGenericType(_loggerType);
             return (IInterceptor)request.Context.Kernel.Get(specific, new IParameter[] { });
         }

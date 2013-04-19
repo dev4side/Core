@@ -74,7 +74,8 @@
     <Compile Include="Utils\TypeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
+    <Reference Include="Ninject, Version=2.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\ninject\2.2.0.0\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />

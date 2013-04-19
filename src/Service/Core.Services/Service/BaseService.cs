@@ -29,7 +29,7 @@ namespace Core.Services.Service
         [Inject]
         public virtual ILog<BaseService<TEntity, TKey>> Log { get; set; }
         
-        public virtual TManager Manager<TManager>(IUnitOfWork unitOfWork) where TManager : IMangerMarker
+        public virtual TManager Manager<TManager>(IUnitOfWork unitOfWork) where TManager : IManagerMarker
         {
             return ManagerFactory.GetManager<TManager>(unitOfWork);
         }

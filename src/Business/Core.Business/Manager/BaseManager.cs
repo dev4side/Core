@@ -1,5 +1,4 @@
 ﻿using Core.Business.Factory;
-using Core.Data;
 using Core.Data.Interfaces.Entity;
 using Core.Data.Interfaces.Factory;
 using Core.Data.Interfaces.Repository;

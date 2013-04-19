@@ -22,7 +22,7 @@ namespace Core.Test.BaseFixtures
             ((MockingKernel)ObjectFactory.Kernel).Reset();
         }
 
-        [TestFixtureSetUp]
+        //[TestFixtureSetUp]
         public virtual void SetupKernel()
         {
             ObjectFactory.AssignKernel(CreateKernel());

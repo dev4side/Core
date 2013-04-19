@@ -66,7 +66,7 @@
     <Compile Include="Factory\ManagerFactory.cs" />
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\IBaseManager.cs" />
-    <Compile Include="Manager\IMangerMarker.cs" />
+    <Compile Include="Manager\IManagerMarker.cs" />
     <Compile Include="NinjectModules\MangerFactoryModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Data;
 using Core.Data.Interfaces.Entity;
 
 namespace Core.Business.Manager
@@ -8,7 +7,7 @@ namespace Core.Business.Manager
     /// 
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public interface IBaseManager<out TEntity> : IMangerMarker where TEntity : class, IDomainEntity<Guid>
+    public interface IBaseManager<out TEntity> : IManagerMarker where TEntity : class, IDomainEntity<Guid>
     {
         /// <summary>
         /// 

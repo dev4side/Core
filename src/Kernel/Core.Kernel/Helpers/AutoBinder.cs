@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using Core.Kernel.Exceptions;
 
-namespace Core.Kernel
+namespace Core.Kernel.Helpers
 {
     //nested type perche non ha un vero utilizzo al difuori dall autobinder
     public class ModuleBinder
@@ -16,7 +16,6 @@ namespace Core.Kernel
 
     public class AutoBinder
     {
-
         public static IEnumerable<ModuleBinder> GetBindingsBasedOnGenericInterface(Type interfaceAsGeneric)
         {
             IList<ModuleBinder> result = new List<ModuleBinder>();
@@ -30,19 +29,27 @@ namespace Core.Kernel
                                                where
                                                    interfaceAsType.IsGenericType &&
                                                    interfaceAsType.GetGenericTypeDefinition() == interfaceAsGeneric
-                                               select interfaceAsType);
+                                               select interfaceAsType).ToList();
 
                 var interfacesFound = genericInterfacesToBind.Count();
+                
                 if (interfacesFound > 1)
-                    throw new Exception("todo");
+                {
+                    throw new DependencyInjectionException("todo");
+                }
+                
                 if (interfacesFound == 1)
-                    result.Add(new ModuleBinder() { Interface = genericInterfacesToBind.ElementAt(0), Concrete = concrateType });
+                {
+                    result.Add(new ModuleBinder()
+                                   {
+                                       Interface = genericInterfacesToBind.ElementAt(0),
+                                       Concrete = concrateType
+                                   });
+                }
             }
+
             return result;
-
         }
-
-
 
         //TODO: i tipi come parametri e non generics!!!!!!!
         /// <summary>
@@ -51,12 +58,11 @@ namespace Core.Kernel
         /// <typeparam name="TInterfaceSample">il tipo dell' interfaccia da utilizzare per cercare le interefaccie che iniziano con lo stesso namespace</typeparam>
         /// <typeparam name="TConcrateSample">il tipo della classe concreta da utilizzare per caricaricare i tipi che iniziano con lo stesso namespace</typeparam>
         /// <returns></returns>
-        public static IEnumerable<ModuleBinder> GetBindingsBasedOnStartWithSameNamespaces<TInterfaceSample, TConcrateSample>() where TConcrateSample:TInterfaceSample
+        public static IEnumerable<ModuleBinder> GetBindingsBasedOnStartWithSameNamespaces<TInterfaceSample, TConcrateSample>() where TConcrateSample : TInterfaceSample
         {
             // questo metodo può essere fatto ancora piu genrerico:
             // in teoria non serve dover specificare anche il tipo della calsse concreta. in questo caso viene fatto perchè non so in qulae assembly cercare
-
-
+            
             IList<ModuleBinder> result = new List<ModuleBinder>();
             var interfaceTypes = GetInterfaceTypesWithTheSameNamespece(typeof(TInterfaceSample));
             var concrateTypes = GetConcrateTypesWithTheSameNamespece(typeof(TConcrateSample));
@@ -67,37 +73,42 @@ namespace Core.Kernel
                 var concreateImplementationsOfInterface =
                     (from concrateType in concrateTypes
                      where concrateType.GetInterfaces().Any(x => x == typeToSearch)
-                     select concrateType);
+                     select concrateType).ToList();
 
                 var concrateTypesWithCurrentInterface = concreateImplementationsOfInterface.Count();
+                
                 if (concrateTypesWithCurrentInterface > 1)
+                {
                     ThrowMultipleConcrateImplementations(concreateImplementationsOfInterface, typeToSearch);
+                }
+
                 if (concrateTypesWithCurrentInterface == 1)
+                {
                     result.Add(new ModuleBinder()
-                               {
-                                   Interface = interfaceType,
-                                   Concrete = concreateImplementationsOfInterface.ElementAt(0)
-                               });
+                                   {
+                                       Interface = interfaceType,
+                                       Concrete = concreateImplementationsOfInterface.ElementAt(0)
+                                   });
+                }
             }
 
             return result;
         }
 
-        #region internal helpers
+        #region Internal Helpers
+
         private static List<Type> GetConcrateTypesWithTheSameNamespece(Type concreteSampleType)
         {
 
             Assembly concrateAssembly = concreteSampleType.Assembly;
             string concrateNamespaceToMatch = concreteSampleType.Namespace;
             var concrate = (from type in concrateAssembly.GetTypes()
-                            where type.Namespace != null && 
-                            (!type.Name.Contains("<>") && // escludo le classi proxy generate dinamicamente
-                           //  type.Namespace.StartsWith(concrateNamespaceToMatch))
-                             type.Namespace.Equals(concrateNamespaceToMatch))
+                            where type.Namespace != null &&
+                                  (!type.Name.Contains("<>") && // escludo le classi proxy generate dinamicamente
+                                   type.Namespace.Equals(concrateNamespaceToMatch))
                             select type).ToList();
             return concrate;
         }
-
 
         private static List<Type> GetInterfaceTypesWithTheSameNamespece(Type interfacesSampleType)
         {
@@ -107,31 +118,38 @@ namespace Core.Kernel
 
             var interfaces = (from type in typesInAssembly
                               where
-                                  type.Namespace != null && 
-                               //   (type.Namespace.StartsWith(interfaceNamespaceToMatch) &&
-                                (type.Namespace.Equals(interfaceNamespaceToMatch) &&
-                                  type.IsInterface)
-                              select type);
+                                  type.Namespace != null &&
+                                  (type.Namespace.Equals(interfaceNamespaceToMatch) &&
+                                   type.IsInterface)
+                              select type).ToList();
 
             if (!interfaces.Any())
-                throw new DependencyInjectionException(String.Format("Cannot find interfaces with namespace: {0} in assembly {1}. AutoBinder Failed using interface {2}!!",
-                                  interfaceNamespaceToMatch, interfaceAssembly.FullName, interfacesSampleType.FullName));
+            {
+                throw new DependencyInjectionException(
+                    String.Format(
+                        "Cannot find interfaces with namespace: {0} in assembly {1}. AutoBinder Failed using interface {2}!!",
+                        interfaceNamespaceToMatch, interfaceAssembly.FullName, interfacesSampleType.FullName));
+            }
+
             return interfaces.ToList();
         }
 
-        private static void ThrowMultipleConcrateImplementations(IEnumerable<Type> concreateImplementationsOfInterface, Type type)
+        private static void ThrowMultipleConcrateImplementations(IList<Type> concreateImplementationsOfInterface, Type type)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(String.Format("Automatic bindings can be done only with 1 to 1 relationshipt between" +
                                         " conrate and interface trypes. for interface {0} have been found {1} concrate types:",
                                         type, concreateImplementationsOfInterface.Count()));
+
             foreach (var concrateType in concreateImplementationsOfInterface)
+            {
                 sb.AppendLine(concrateType.FullName);
-            throw new Exception(sb.ToString());
+            }
+
+            throw new DependencyInjectionException(sb.ToString());
         }
 
-
-        private static List<Type> GetConcrateImplementationOfGenericInterface(Type interfaceAsGeneric, Assembly assemblyToSearchIn)
+        private static IEnumerable<Type> GetConcrateImplementationOfGenericInterface(Type interfaceAsGeneric, Assembly assemblyToSearchIn)
         {
             var concrateImplementationOfGenericINterface = (from type in assemblyToSearchIn.GetTypes()
                                                             where

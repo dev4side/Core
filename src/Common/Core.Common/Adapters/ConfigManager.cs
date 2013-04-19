@@ -49,7 +49,6 @@ namespace Core.Common.Adapters
 				Log.Error(ex, "Unknown error while loading " + _configPath + ", see exception details");
 				throw;
 			}
-
 		}
 
 		public string GetConfigValue(string xpathExpr)
