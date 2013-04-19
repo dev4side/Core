@@ -171,7 +171,5 @@ namespace Core.Network.Discovery
 			get	{ return  _poller.Interval;	 }
 			set { _poller.Interval = value;  }
 		}
-
-
 	}
 }

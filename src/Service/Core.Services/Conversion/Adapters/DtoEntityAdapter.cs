@@ -5,8 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Core.Common.Constants;
 
-
-namespace Core.Services.Conversion
+namespace Core.Services.Conversion.Adapters
 {
     // refactor this!!!!!
     public class DtoEntityAdapter<TEntity, TDto, TIDto> where TDto : TIDto
@@ -390,6 +389,7 @@ namespace Core.Services.Conversion
             // controllo che il DTO contiene l' attributo MapToEntity
             var typeAsString = typeof (TEntity).ToString();
             var candidatesAttributes = typeof(TDto).GetCustomAttributes(typeof(MapToEntity), true);
+            
             foreach (var candidatesAttribute in candidatesAttributes)
             {
                 var att = candidatesAttribute as MapToEntity;
@@ -397,10 +397,10 @@ namespace Core.Services.Conversion
                     if (att.EntityName.Equals(typeAsString))
                         return;
             }
+            
             throw new DtoEntityAdapterConversionException(typeof(TEntity), typeof(TDto),
                 String.Format("Cannot map {0} with dto {1}. Unable to locate the MapToEntity attribute in the DTO", typeof(TEntity), typeof(TDto)));
 #endif
-
         }
 
         private static IList<DtoEntityMappingProperties> GetDtoEntityMappingProperties(Type dtoType, Type entityType)
@@ -452,5 +452,3 @@ namespace Core.Services.Conversion
         }
     }
 }
-
-

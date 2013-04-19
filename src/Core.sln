@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{F38F2DE1-05C8-4CA2-AA30-DBE596B2519B}"
+	ProjectSection(SolutionItems) = preProject
+		Business\README.md = Business\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{60E9E91B-9648-4922-B922-20160698D543}"
 	ProjectSection(SolutionItems) = preProject

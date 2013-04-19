@@ -2,7 +2,6 @@
 
 namespace Core.Services.Conversion
 {
-
     public interface IConvertCommand
     {
         object ConvertToDto(object toConvert, Type requestedType);

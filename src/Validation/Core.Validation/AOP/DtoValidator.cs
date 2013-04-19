@@ -1,7 +1,8 @@
 ﻿using System;
+using Core.Validation.Exceptions;
 using Ninject.Extensions.Interception;
 
-namespace Core.Validation
+namespace Core.Validation.AOP
 {
     public class DtoValidator<T>: SimpleInterceptor
     {
@@ -14,14 +15,20 @@ namespace Core.Validation
         private static void FindAndValidateArgument(object[] arugments)
         {
             Type typeOfT = typeof (T);
+            
             foreach (var obj in arugments)
             {
                 if (typeOfT.IsInstanceOfType(obj))
                 {
                     var validationResult = ValidationEngine.TryValidate((T) obj);
+                    
                     if (validationResult != null)
+                    {
                         if (!validationResult.Valid)
+                        {
                             throw new ValidationException(validationResult);
+                        }
+                    }
                 }
             }
         }

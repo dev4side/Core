@@ -1,10 +1,9 @@
-﻿using Core.Services.Encoding.AOP;
-using Ninject;
+﻿using Ninject;
 using Ninject.Extensions.Interception;
 using Ninject.Extensions.Interception.Attributes;
 using Ninject.Extensions.Interception.Request;
 
-namespace Core.Services.Encoding
+namespace Core.Services.Encoding.AOP
 {
     public class EncodingInterceptorAttribute : InterceptAttribute
     {

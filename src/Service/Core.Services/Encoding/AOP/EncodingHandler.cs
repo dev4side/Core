@@ -22,16 +22,26 @@ namespace Core.Services.Encoding.AOP
 
         protected override void BeforeInvoke(IInvocation invocation)
         {
-            if (EncodingType != EncodingType.Encode) return;
+            if (EncodingType != EncodingType.Encode)
+            {
+                return;
+            }
+                
             object[] arguments = invocation.Request.Arguments;
 
             foreach (object argument in arguments.Where(x => x != null))
+            {
                 EncodeDecodeEntity(argument, EncodingType);
+            }
         }
 
         protected override void AfterInvoke(IInvocation invocation)
         {
-            if (EncodingType != EncodingType.Decode) return;
+            if (EncodingType != EncodingType.Decode)
+            {
+                return;
+            }
+
             object returnValue = invocation.ReturnValue;
             EncodeDecodeEntity(returnValue, EncodingType);
         }
@@ -44,8 +54,10 @@ namespace Core.Services.Encoding.AOP
             foreach (PropertyInfo propertyInfo in props)
             {
                 if (!propertyInfo.GetCustomAttributes(true).Contains(new EncodeHtmlAttribute()))
+                {
                     continue;
-                
+                }
+
                 object propertyValue = propertyInfo.GetValue(entityToEncode, null);
                 string encodedPropertyValue = string.Empty;
 

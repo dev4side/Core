@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Core.Log.Helper;
 using System.Threading;
 using Core.Log.Log4Net.Managers;
 
 namespace Core.Log.Log4Net
 {
-    public class VsDebugLogger<t> : ILog<t>
+    public class VsDebugLogger<T> : ILog<T>
     {
-        private const string DEBUG_INDICATOR = " [Empower] ";
+        private const string DEBUG_INDICATOR = " [Core] ";
         private const string INFO_INDICATOR = DEBUG_INDICATOR + " [INFO] ";
         private const string WARNING_INDICATOR = DEBUG_INDICATOR + " [WARN] ";
         private const string ERROR_INDICATOR = DEBUG_INDICATOR + " [ERRR] ";
@@ -25,8 +22,7 @@ namespace Core.Log.Log4Net
         {
             WriteToDebugWindow(DEBUG_INDICATOR, message, exception);
         }
-
-
+        
         public void Info(params string[] message)
         {
             WriteToDebugWindow(INFO_INDICATOR, message);
@@ -69,11 +65,9 @@ namespace Core.Log.Log4Net
 
         private static void WriteExceptionDetails(Exception exception)
         {
-
             System.Diagnostics.Debug.WriteLine(String.Format("Exception Message: {0}", exception.Message));
             System.Diagnostics.Debug.WriteLine(String.Format("StackTrace: {0}", exception.StackTrace));
         }
-
 
         private void WriteToDebugWindow(string errorLelvelIndicatgor, string[] message)
         {
@@ -84,10 +78,11 @@ namespace Core.Log.Log4Net
 
         private string ThreadIdOrName()
         {
-            var resultFormat = " [{0}] ";
-            if (Thread.CurrentThread.Name == null)
-                return string.Format(resultFormat, Thread.CurrentThread.ManagedThreadId.ToString());
-            return string.Format(resultFormat, Thread.CurrentThread.Name);
+            const string resultFormat = " [{0}] ";
+
+            return Thread.CurrentThread.Name == null
+                       ? string.Format(resultFormat, Thread.CurrentThread.ManagedThreadId.ToString())
+                       : string.Format(resultFormat, Thread.CurrentThread.Name);
         }
 
         private void WriteToDebugWindow(string errorLelvelIndicatgor, string[] message, Exception exception)
@@ -107,6 +102,5 @@ namespace Core.Log.Log4Net
         {
             WriteToDebugWindow(DEBUG_INDICATOR, new[] { ObjectDumper.Dump(objectToDump) });
         }
-
     }
 }

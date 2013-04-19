@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.Validation.Extensions
 {
@@ -7,14 +8,7 @@ namespace Core.Validation.Extensions
     {
         public static bool Validate<T>(this IList<T> list, Func<T, bool> function)
         {
-            var validationResult = true;
-
-            foreach (var item in list)
-            {
-                var functionResult = function.Invoke(item);
-                validationResult = validationResult & functionResult;
-            }
-            return validationResult;
+            return list.Select(function.Invoke).Aggregate(true, (current, functionResult) => current & functionResult);
         }
 
         public static bool ValidateCountGraterThanZero<T>(this IList<T> list)

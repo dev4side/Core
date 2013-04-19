@@ -5,9 +5,7 @@ namespace Core.Validation.Extensions
     {
         public static bool IsInRange(this double value, int min, int max)
         {
-            if (value >= min && value <= max)
-                return true;
-            return false;
+            return value >= min && value <= max;
         }
 
         public static bool IsNotInRange(this double value, int min, int max)
@@ -17,9 +15,7 @@ namespace Core.Validation.Extensions
 
         public static bool IsInRange(this double value, double min, double max)
         {
-            if (value >= min && value <= max)
-                return true;
-            return false;
+            return value >= min && value <= max;
         }
 
         public static bool IsNotInRange(this double value, double min, double max)

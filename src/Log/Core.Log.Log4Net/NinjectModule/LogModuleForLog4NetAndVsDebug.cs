@@ -1,4 +1,6 @@
-﻿namespace Core.Log.Log4Net.NinjectModule
+﻿using System.Diagnostics;
+
+namespace Core.Log.Log4Net.NinjectModule
 {
     public class Log4NetAndVsModule : Ninject.Modules.NinjectModule
     {

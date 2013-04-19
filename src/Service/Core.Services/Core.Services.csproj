@@ -63,7 +63,6 @@
     <Compile Include="Consinstency\AOP\WcfExceptionInterceptorAttribute.cs" />
     <Compile Include="Consinstency\MessageException.cs" />
     <Compile Include="Conversion\ConverterManager.cs" />
-    <Compile Include="Conversion\Converters\CoBodyPartConverter.cs" />
     <Compile Include="Conversion\Adapters\DtoEntityAdapter.cs" />
     <Compile Include="Conversion\Converters\EnumStringConverter.cs" />
     <Compile Include="Conversion\Converters\ListConverter.cs" />

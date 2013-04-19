@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Validation
+namespace Core.Validation.Exceptions
 {
     public class ValidationException : Exception
     {

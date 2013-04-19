@@ -53,10 +53,7 @@
       <HintPath>..\..\..\lib\ninject\2.2.0.0\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Interception">
-      <HintPath>..\..\..\lib\ninject\ninjectExtensions\ninjectExtensionsInterception\2.2.1.0\Ninject.Extensions.Interception.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Extensions.Interception.LinFu">
-      <HintPath>..\..\..\lib\ninject\ninjectExtensions\ninjectExtensionsInterception\2.2.1.0\Ninject.Extensions.Interception.LinFu.dll</HintPath>
+      <HintPath>..\..\Log\Core.Log\bin\Release\Ninject.Extensions.Interception.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>

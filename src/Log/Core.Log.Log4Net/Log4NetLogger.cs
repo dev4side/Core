@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Core.Log.Helper;
 using log4net;
 using Core.Log.Log4Net.Managers;
@@ -10,7 +7,6 @@ namespace Core.Log.Log4Net
 {
     public class Log4NetLogger<TType> : ILog<TType>
     {
-
         public Log4NetLogger()
         {
             log4net.Config.XmlConfigurator.Configure();
@@ -77,7 +73,9 @@ namespace Core.Log.Log4Net
         public void DumpObject(object objectToDump)
         {
             if (IsDebugEnabled())
-                LogManager.GetLogger(typeof(TType)).Debug(ObjectDumper.Dump(objectToDump));
+            {
+                LogManager.GetLogger(typeof (TType)).Debug(ObjectDumper.Dump(objectToDump));
+            }
         }
     }
 }

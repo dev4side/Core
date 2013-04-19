@@ -4,10 +4,10 @@ using System.Text;
 using Core.Business.Exceptions;
 using Core.Kernel;
 using Core.Log;
-using Core.Validation;
+using Core.Validation.Exceptions;
 using Ninject.Extensions.Interception;
 
-namespace Core.Services.Consinstency
+namespace Core.Services.Consinstency.AOP
 {
     public class LastChanceWcfExceptionHandler : IInterceptor
     {
@@ -53,7 +53,6 @@ namespace Core.Services.Consinstency
         private void ThrowValidationExceptionAsFaultException(IInvocation invocation, ValidationException ex)
         {
             var sb = new StringBuilder();
-            //sb.Append("Your request has a validation error. Please make sure that you have submitted a consistent data.");
             sb.Append(ex.MessageInHtml);
             throw new FaultException(sb.ToString(), new FaultCode("service fault"));
         }

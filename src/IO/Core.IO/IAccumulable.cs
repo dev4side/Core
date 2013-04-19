@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Core.IO
+﻿namespace Core.IO
 {
 	public interface IAccumulable
 	{
@@ -11,9 +6,8 @@ namespace Core.IO
 		void AccumulateNow();
 	}
 
-	public interface IAccumulable<TStruct> : IAccumulable
+	public interface IAccumulable<out TStruct> : IAccumulable
 	{
 		TStruct[] AccumulatedValues { get; }
 	}
-
 }

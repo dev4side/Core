@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Diagnostics.Contracts;
 
 namespace Core.IO
 {
@@ -41,6 +37,5 @@ namespace Core.IO
 		{
 			return (TargetElement != null) && (_referenceCRC.Hash == Value.Hash);
 		}
-
 	}
 }

@@ -19,10 +19,15 @@ namespace Core.Services.Resolving
             foreach (var candidateType in candidateTypes)
             {
                 if (candidateType.Namespace != null)
-                    if ( (rootNamespace == null) || candidateType.Namespace.StartsWith(rootNamespace))
+                {
+                    if ((rootNamespace == null) || candidateType.Namespace.StartsWith(rootNamespace))
+                    {
                         if (candidateType.IsClass)
-							filteredTypes.Add(candidateType);
-
+                        {
+                            filteredTypes.Add(candidateType);
+                        }
+                    }
+                }
             }
 			return filteredTypes;
         }

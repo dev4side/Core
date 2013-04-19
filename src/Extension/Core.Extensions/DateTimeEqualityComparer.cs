@@ -18,13 +18,15 @@ namespace Core.Extensions
             {
                 return false;
             }
-            else if (x is DateTime && y is DateTime)
+            
+            if (x is DateTime && y is DateTime)
             {
                 var dt1 = (DateTime)x;
                 var dt2 = (DateTime)y;
                 var duration = (dt1 - dt2).Duration();
                 return duration < _maxDifference;
             }
+
             return x.Equals(y);
         }
 

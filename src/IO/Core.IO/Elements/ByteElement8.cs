@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Core.IO
+﻿namespace Core.IO
 {
 	public class ByteElement8 : BaseElement<byte>
 	{
@@ -12,7 +7,6 @@ namespace Core.IO
 		public override void UpdateValueFromBuffer(byte[] buffer)
 		{
 			Value = buffer[Position];
-
 		}
 
 		public override void UpdateBufferFromValue(byte[] buffer)
