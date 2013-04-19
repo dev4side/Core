@@ -34,11 +34,17 @@ namespace Core.Data.Exceptions
 
         private static void FormatInnerMessageAsRecursive(Exception exception, ref StringBuilder sb, int level)
         {
-			if (level >= 5) return;
+            if (level >= 5)
+            {
+                return;
+            }
 
             sb.AppendLine(exception.Message);
+
             if (exception.InnerException != null)
-                FormatInnerMessageAsRecursive(exception,ref sb, ++level);
+            {
+                FormatInnerMessageAsRecursive(exception, ref sb, ++level);
+            }
         }
     }
 }

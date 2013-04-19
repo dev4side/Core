@@ -9,10 +9,10 @@ using Ninject;
 namespace Core.Business.Manager
 {
     /// <summary>
-    /// 
+    /// Provides a base class for manager layer
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TEntity">The domain entity</typeparam>
+    /// <typeparam name="TKey">The key for the relative domain entity</typeparam>
     public abstract class BaseManager<TEntity, TKey> where TEntity : class, IDomainEntity<TKey>
     {
         private IRepository<TEntity, TKey> _currentRepository;

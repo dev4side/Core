@@ -9,6 +9,7 @@ namespace Core.Data.BaseEntity
         public virtual T Id { get; set; }
 
         #region Comparison
+
         public virtual bool Equals(BaseEntity<T> other)
         {
             return Id.Equals(other.Id);
@@ -18,7 +19,7 @@ namespace Core.Data.BaseEntity
         {
             return obj.Id.GetHashCode();
         }
+        
         #endregion  
-
     }
 }

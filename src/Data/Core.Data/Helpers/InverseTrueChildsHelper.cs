@@ -35,7 +35,7 @@ namespace Core.Data.Helpers
         private static PropertyInfo GetPropertyToUse(IEnumerable<T> childList, string propertyNameWhereParentBelongs)
         {
             if (!(childList is IList<T>))
-                throw new Exception(String.Format("To use InverseTrueChildsHelper the provided {0} list  must implement IList<>", typeof(T)));
+                throw new Exception(String.Format("To use InverseTrueChildsHelper the provided {0} list must implement IList<>", typeof(T)));
             var propertyInfo = typeof(T).GetProperty(propertyNameWhereParentBelongs);
             if (propertyInfo == null)
                 throw new Exception(String.Format("The provided propertyNameWhereParentBelongs [{0}] does not exists in {1} entity", propertyNameWhereParentBelongs, typeof(T)));
