@@ -107,7 +107,7 @@ namespace Core.Data.Objects
             IEnumerable<IJoin> joins, bool appendFirstEntityId = true) where TDto : class, new()
         {
             if (Log.IsDebugEnabled())
-                Log.Debug("GetDtosByFilterConstraintsAndProjetions projections: #{0}, restrictions: #{1}, joins: #{2}",
+                Log.Debug("GetDtoByProjections projections: #{0}, restrictions: #{1}, joins: #{2}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "");
@@ -119,7 +119,7 @@ namespace Core.Data.Objects
         {
             if (Log.IsDebugEnabled())
                 Log.Debug(
-                    "GetDtosByFilterConstraintsAndProjetions projections: #{0}, restrictions: #{1}, joins: #{2}, ordinations: #{3}",
+                    "GetDtoByProjections projections: #{0}, restrictions: #{1}, joins: #{2}, ordinations: #{3}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",
@@ -136,7 +136,7 @@ namespace Core.Data.Objects
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",
-                    pageIndex.ToString(), pageSize.ToString(CultureInfo.InvariantCulture));
+                    pageIndex.ToString(CultureInfo.InvariantCulture), pageSize.ToString(CultureInfo.InvariantCulture));
             return this.UnitOfWork.GetPagedDtosByprojections<TEntity, TDto>(projections, restrictions, joins, pageIndex, pageSize);
         }
 
@@ -159,7 +159,7 @@ namespace Core.Data.Objects
         {
             if (Log.IsDebugEnabled())
                 Log.Debug(
-                    "GetDtosByFilterConstraintsAndProjetions projections: #{0}, restrictions: #{1}, joins: #{2}, ordinations: #{3}",
+                    "GetSqlFromHql projections: #{0}, restrictions: #{1}, joins: #{2}, ordinations: #{3}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",

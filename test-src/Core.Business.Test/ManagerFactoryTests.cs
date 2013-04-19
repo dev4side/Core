@@ -23,19 +23,19 @@ namespace Core.Business.Test
 
         [Test]
         [ExpectedException(typeof(ManagerException))]
-        public void GetManager_fails_is_TManger_generics_is_not_an_interface()
+        public void GetManagerFailsIfTMangerGenericsIsNotAnInterface()
         {
             var unitOfWork = MockRepository.GenerateStub<IUnitOfWork>();
-            Manager managerTestClass = new ManagerFactory().GetManager<Manager>(unitOfWork);
+            var sut = new ManagerFactory().GetManager<Manager>(unitOfWork);
         }
 
         [Test]
-        public void GetManager_fails_is_does_not_return_a_correct_manager_class()
+        public void GetManagerFailsIfDoesNotReturnCorrectManagerClass()
         {
             var unitOfWork = MockRepository.GenerateStub<IUnitOfWork>();
-            var managerTestClass = new ManagerFactory().GetManager<IManager>(unitOfWork);
+            var sut = new ManagerFactory().GetManager<IManager>(unitOfWork);
 
-            Assert.AreEqual(typeof(ManagerConcrete), managerTestClass.GetType());
+            Assert.AreEqual(typeof(ManagerConcrete), sut.GetType());
         }
     }
 
