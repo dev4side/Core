@@ -5,9 +5,17 @@ using Core.Common.Mappers;
 
 namespace Core.Common.Mapper
 {
+    /// <summary>
+    /// Loads and saves dto's that are mapped to registry values throught MapToRegistryKeyAttributes
+    /// </summary>
+    /// <typeparam name="TRegistryObject"></typeparam>
     public class RegistryMapper<TRegistryObject> where TRegistryObject : class
     {
-        public static TRegistryObject CreateRegistryObjectFromLocalRegistry()
+        /// <summary>
+        /// Returns T with mapped properties throught MapToRegistryKeyAttributes
+        /// </summary>
+        /// <returns></returns>
+        public static TRegistryObject Get()
         {
             Type type = typeof(TRegistryObject);
             var result = Activator.CreateInstance(type);
@@ -42,7 +50,11 @@ namespace Core.Common.Mapper
             return result as TRegistryObject;
         }
 
-        public static void PersistRegistryObjectInLocalRegistry(TRegistryObject registryObject)
+        /// <summary>
+        /// Saves T by writing properties marked with throught MapToRegistryKeyAttributes into Registry
+        /// </summary>
+        /// <param name="registryObject"></param>
+        public static void Set(TRegistryObject registryObject)
         {
             Type type = typeof(TRegistryObject);
             var customAttributes = type.GetCustomAttributes(false);
@@ -64,7 +76,6 @@ namespace Core.Common.Mapper
                                 {
                                     if (attribute is MapToRegistryKeyPropertyAttribute)
                                     {
-
                                         var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
                                         RegistyHelper.Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.BooleanConversion));
                                     }

@@ -19,7 +19,10 @@ namespace Core.Common.Mapper.Registry
             {
                 if (IntPtr.Size == 4)
                     return Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE");
-                return Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE").OpenSubKey("Wow6432Node");
+                var openSubKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE");
+                if (openSubKey != null)
+                    return openSubKey.OpenSubKey("Wow6432Node");
+                else throw new Exception("Cannot read key SOFTWARE");
             }
         }
 
