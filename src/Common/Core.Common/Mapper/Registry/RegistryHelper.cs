@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Win32;
 
-namespace Core.Common.Adapter
+namespace Core.Common.Mapper.Registry
 {
     ///
     /// taken from http://www.codeproject.com/KB/system/modifyregistry.aspx 
@@ -18,8 +18,8 @@ namespace Core.Common.Adapter
             get
             {
                 if (IntPtr.Size == 4)
-                    return Registry.LocalMachine.OpenSubKey("SOFTWARE");
-                return Registry.LocalMachine.OpenSubKey("SOFTWARE").OpenSubKey("Wow6432Node");
+                    return Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE");
+                return Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE").OpenSubKey("Wow6432Node");
             }
         }
 

@@ -7,7 +7,7 @@ using Core.Log;
 using Core.Common.Mappers;
 using Ninject;
 
-namespace Core.Common.Adapter
+namespace Core.Common.Mapper
 {
     /// <summary>
     /// Read and Writes to .net config (app.config/web.config) files

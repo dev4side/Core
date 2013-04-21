@@ -53,9 +53,9 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Adapter\ConfigManager.cs" />
-    <Compile Include="Adapter\RegistryHelper.cs" />
-    <Compile Include="Adapter\Exception\RegistryObjectMappingException.cs" />
+    <Compile Include="Mapper\Config\ConfigManager.cs" />
+    <Compile Include="Mapper\Registry\RegistryHelper.cs" />
+    <Compile Include="Mapper\Registry\Exception\RegistryObjectMappingException.cs" />
     <Compile Include="Cache\Exceptions\CacheException.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Collection\DictionaryWithDefaultValue.cs" />
@@ -69,9 +69,10 @@
     <Compile Include="Extension\RegexExtensions.cs" />
     <Compile Include="Extension\StringExtensions.cs" />
     <Compile Include="Extension\TypeExtensions.cs" />
-    <Compile Include="Mapper\MapToConfigSection.cs" />
-    <Compile Include="Mapper\MapToRegistryKey.cs" />
-    <Compile Include="Mapper\MapToRegistryKeyProperty.cs" />
+    <Compile Include="MapperXX\MapToConfigSection.cs" />
+    <Compile Include="MapperXX\MapToRegistryKey.cs" />
+    <Compile Include="MapperXX\MapToRegistryKeyProperty.cs" />
+    <Compile Include="Mapper\Registry\RegistryMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\IResources.cs" />
     <Compile Include="Util\BooleanConversion.cs" />
