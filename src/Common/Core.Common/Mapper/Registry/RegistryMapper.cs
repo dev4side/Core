@@ -34,7 +34,7 @@ namespace Core.Common.Mapper
                             if (attribute is MapToRegistryKeyPropertyAttribute)
                             {
                                 var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
-                                object registryKeyValue = RegistyHelper.Read(registryKeyProperty.Path, registryKeyProperty.Key);
+                                object registryKeyValue = Read(registryKeyProperty.Path, registryKeyProperty.Key);
                                 if (registryKeyValue == null)
                                     throw new RegistryObjectMappingException(
                                         String.Format("no value in path:{0} and key:{1} in the windows registry. Check how you have mapped" +
@@ -77,7 +77,7 @@ namespace Core.Common.Mapper
                                     if (attribute is MapToRegistryKeyPropertyAttribute)
                                     {
                                         var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
-                                        RegistyHelper.Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.BooleanConversion));
+                                        Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.BooleanConversion));
                                     }
                                 }
                             }
@@ -85,6 +85,18 @@ namespace Core.Common.Mapper
                     }
                 }
             }
-        } 
+        }
+
+
+
+        private static object Read(string path, string keyName)
+        {
+            return Microsoft.Win32.Registry.GetValue(path, keyName, null);
+        }
+
+        private static void Write(string path, string keyName, object obj)
+        {
+            Microsoft.Win32.Registry.SetValue(path, keyName, obj);
+        }
     }
 }

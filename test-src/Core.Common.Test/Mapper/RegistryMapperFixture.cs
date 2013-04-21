@@ -45,7 +45,7 @@ namespace Core.Common.Test.Mapper
         }
 
         [Test]
-        public void SetGetObject()
+        public void CanSetObject()
         {
             var testDto = new TestDto()
                 {
