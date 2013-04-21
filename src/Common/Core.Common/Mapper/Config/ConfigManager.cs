@@ -106,7 +106,7 @@ namespace Core.Common.Mapper
 			{
 				if (prop.PropertyType == typeof(string))
 				{
-					var attr = prop.GetCustomAttributes(typeof(MapToConfigSection), false).AsQueryable().FirstOrDefault() as MapToConfigSection;
+					var attr = prop.GetCustomAttributes(typeof(MapToConfigSectionAttribute), false).AsQueryable().FirstOrDefault() as MapToConfigSectionAttribute;
 					if (attr != null)
 					{
 						var value = prop.GetValue(configObj, null) as string;
@@ -127,7 +127,7 @@ namespace Core.Common.Mapper
 			{
 				if (prop.PropertyType == typeof(string))
 				{
-					MapToConfigSection attr = prop.GetCustomAttributes(typeof(MapToConfigSection), false).AsQueryable().FirstOrDefault() as MapToConfigSection;
+					MapToConfigSectionAttribute attr = prop.GetCustomAttributes(typeof(MapToConfigSectionAttribute), false).AsQueryable().FirstOrDefault() as MapToConfigSectionAttribute;
 					if (attr != null)
 					{
 						prop.SetValue(result,this.GetConfigValue(attr.XPathExpr),null);

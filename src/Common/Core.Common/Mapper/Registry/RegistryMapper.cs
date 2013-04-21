@@ -15,7 +15,7 @@ namespace Core.Common.Mapper
             var customAttributes = type.GetCustomAttributes(false);
             foreach (var customAttribute in customAttributes)
             {
-                if (customAttribute is MapToRegistryKey)
+                if (customAttribute is MapToRegistryKeyAttribute)
                 {
                     var properties = type.GetProperties();
                     foreach (var propertyInfo in properties)
@@ -23,9 +23,9 @@ namespace Core.Common.Mapper
                         var attributes = propertyInfo.GetCustomAttributes(false);
                         foreach (var attribute in attributes)
                         {
-                            if (attribute is MapToRegistryKeyProperty)
+                            if (attribute is MapToRegistryKeyPropertyAttribute)
                             {
-                                MapToRegistryKeyProperty registryKeyProperty = attribute as MapToRegistryKeyProperty;
+                                var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
                                 object registryKeyValue = RegistyHelper.Read(registryKeyProperty.Path, registryKeyProperty.Key);
                                 if (registryKeyValue == null)
                                     throw new RegistryObjectMappingException(
@@ -48,7 +48,7 @@ namespace Core.Common.Mapper
             var customAttributes = type.GetCustomAttributes(false);
             foreach (var customAttribute in customAttributes)
             {
-                if (customAttribute is MapToRegistryKey)
+                if (customAttribute is MapToRegistryKeyAttribute)
                 {
                     var properties = type.GetProperties();
                     foreach (var propertyInfo in properties)
@@ -62,10 +62,10 @@ namespace Core.Common.Mapper
                                 var attributes = propertyInfo.GetCustomAttributes(false);
                                 foreach (var attribute in attributes)
                                 {
-                                    if (attribute is MapToRegistryKeyProperty)
+                                    if (attribute is MapToRegistryKeyPropertyAttribute)
                                     {
 
-                                        MapToRegistryKeyProperty registryKeyProperty = attribute as MapToRegistryKeyProperty;
+                                        var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
                                         RegistyHelper.Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.BooleanConversion));
                                     }
                                 }
