@@ -1,4 +1,5 @@
 using System;
+using Core.Common.Adapter;
 using Core.Common.Mappers;
 using Core.Common.Converters;
 
@@ -17,7 +18,6 @@ namespace Core.Common.Adapters
             get { return _message; }
         }
     }
-
 
     public static class RegistryObjectManager<TRegistryObject> where TRegistryObject : class
     {

@@ -7,8 +7,11 @@ using Core.Log;
 using Core.Common.Mappers;
 using Ninject;
 
-namespace Core.Common.Adapters
+namespace Core.Common.Adapter
 {
+    /// <summary>
+    /// Read and Writes to .net config (app.config/web.config) files
+    /// </summary>
 	public class ConfigManager
 	{
         [Inject]
@@ -103,7 +106,7 @@ namespace Core.Common.Adapters
 			{
 				if (prop.PropertyType == typeof(string))
 				{
-					MapToConfigSection attr = prop.GetCustomAttributes(typeof(MapToConfigSection), false).AsQueryable().FirstOrDefault() as MapToConfigSection;
+					var attr = prop.GetCustomAttributes(typeof(MapToConfigSection), false).AsQueryable().FirstOrDefault() as MapToConfigSection;
 					if (attr != null)
 					{
 						var value = prop.GetValue(configObj, null) as string;
@@ -118,7 +121,7 @@ namespace Core.Common.Adapters
 
 		public TConfigObj ReadConfigObject<TConfigObj>() where TConfigObj : class, new()
 		{
-			TConfigObj result = new TConfigObj();
+			var result = new TConfigObj();
 
 			foreach (var prop in typeof(TConfigObj).GetProperties())
 			{
