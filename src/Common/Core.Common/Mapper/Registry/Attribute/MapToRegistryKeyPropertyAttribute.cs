@@ -15,6 +15,6 @@ namespace Core.Common.Mappers.Registry
             Key = key;
         }
 
-        public RegistryConversion BooleanConversion { get; set; }
+        public RegistryConversion RegistryConversion { get; set; }
     }
 }

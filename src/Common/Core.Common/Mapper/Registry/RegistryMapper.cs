@@ -1,8 +1,7 @@
-﻿using System;
-using Core.Common.Converters;
+﻿using Core.Common.Converters;
 using Core.Common.Mapper.Registry;
-using Core.Common.Mappers;
 using Core.Common.Mappers.Registry;
+using System;
 
 namespace Core.Common.Mapper
 {
@@ -41,7 +40,7 @@ namespace Core.Common.Mapper
                                         String.Format("no value in path:{0} and key:{1} in the windows registry. Check how you have mapped" +
                                                       "property {2} of type {3}",
                                                       registryKeyProperty.Path, registryKeyProperty.Key, propertyInfo.Name, result.GetType()));
-                                propertyInfo.SetValue(result, Converter.ConvertToPropertyType(registryKeyValue, propertyInfo.PropertyType, registryKeyProperty.BooleanConversion), null);
+                                propertyInfo.SetValue(result, Converter.ConvertToPropertyType(registryKeyValue, propertyInfo.PropertyType, registryKeyProperty.RegistryConversion), null);
                             }
                         }
                     }
@@ -78,7 +77,7 @@ namespace Core.Common.Mapper
                                     if (attribute is MapToRegistryKeyPropertyAttribute)
                                     {
                                         var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
-                                        Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.BooleanConversion));
+                                        Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.RegistryConversion));
                                     }
                                 }
                             }
@@ -87,8 +86,6 @@ namespace Core.Common.Mapper
                 }
             }
         }
-
-
 
         private static object Read(string path, string keyName)
         {
