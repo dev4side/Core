@@ -1,5 +1,5 @@
+using Core.Common.Mapper.Registry;
 using System;
-using Core.Common.Mapper.ConversionMethod;
 
 namespace Core.Common.Converters
 {
@@ -15,17 +15,17 @@ namespace Core.Common.Converters
         /// <param name="value"></param>
         /// <param name="booleanConversion"></param>
         /// <returns></returns>
-        public static object TryInverseBooleanConvertion(object value, BooleanConversion booleanConversion)
+        public static object TryInverseBooleanConvertion(object value, RegistryConversion booleanConversion)
         {
             if (value.GetType().FullName.ToLower() == "system.boolean")
             {
                 bool valueAsBool = (bool)value;
                 switch (booleanConversion)
                 {
-                    case BooleanConversion.EnabledDisabled:
+                    case RegistryConversion.BoolEnabledDisabled:
                         if (valueAsBool) return "Enabled";
                         return "Disabled";
-                    case BooleanConversion.Bit:
+                    case RegistryConversion.BoolBit:
                         if (valueAsBool) return 1;
                         return 0;
                     default:
@@ -39,7 +39,7 @@ namespace Core.Common.Converters
         /// <summary>
         /// Converts an object into a requested type.
         /// </summary>
-        public static object ConvertToPropertyType(object objectoToCOnvert, Type requestedResultType, BooleanConversion booleanConversionRule)
+        public static object ConvertToPropertyType(object objectoToCOnvert, Type requestedResultType, RegistryConversion booleanConversionRule)
         {
             switch (requestedResultType.FullName.ToLower())
             {
@@ -58,11 +58,11 @@ namespace Core.Common.Converters
         /// Converts an object into a bool by follwoing the specified BooleanConversion rule
         /// This is the opposit of TryInverseBooleanConvertion
         /// </summary>
-        public static bool ConvertToBoolean(object value, BooleanConversion booleanConversion)
+        public static bool ConvertToBoolean(object value, RegistryConversion booleanConversion)
         {
             switch (booleanConversion)
             {
-                case BooleanConversion.EnabledDisabled:
+                case RegistryConversion.BoolEnabledDisabled:
                     switch (value.ToString().ToLower())
                     {
                         case "enabled":
@@ -73,7 +73,7 @@ namespace Core.Common.Converters
                             return false;
                     }
                     throw new Exception(String.Format("Unable to convert {0} into bool", value));
-                case BooleanConversion.Bit:
+                case RegistryConversion.BoolBit:
                     return Convert.ToBoolean(Convert.ToInt32(value));
                 default:
                     return Convert.ToBoolean(value);

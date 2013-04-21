@@ -1,8 +1,7 @@
+using Core.Common.Mapper.Registry;
 using System;
-using Core.Common.Mapper.ConversionMethod;
-using Core.Common.Utils;
 
-namespace Core.Common.Mappers
+namespace Core.Common.Mappers.Registry
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class MapToRegistryKeyPropertyAttribute: Attribute
@@ -16,6 +15,6 @@ namespace Core.Common.Mappers
             Key = key;
         }
 
-        public BooleanConversion BooleanConversion { get; set; }
+        public RegistryConversion BooleanConversion { get; set; }
     }
 }

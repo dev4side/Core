@@ -54,7 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Mapper\Config\ConfigManager.cs" />
-    <Compile Include="Mapper\Registry\RegistryHelper.cs" />
     <Compile Include="Mapper\Registry\Exception\RegistryObjectMappingException.cs" />
     <Compile Include="Cache\Exceptions\CacheException.cs" />
     <Compile Include="Cache\ICache.cs" />
@@ -75,7 +74,7 @@
     <Compile Include="Mapper\Registry\RegistryMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\IResources.cs" />
-    <Compile Include="Mapper\ConversionMethod\BooleanConversion.cs" />
+    <Compile Include="Mapper\Registry\Attribute\RegistryConversion.cs" />
     <Compile Include="Util\EnumExtensions.cs" />
     <Compile Include="Util\StringEnum.cs" />
     <Compile Include="Util\StringValueAttribute.cs" />
@@ -99,7 +98,9 @@
       <Name>Core.Log</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Mapper\ConversionMethod\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

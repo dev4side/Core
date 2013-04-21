@@ -2,6 +2,7 @@
 using Core.Common.Converters;
 using Core.Common.Mapper.Registry;
 using Core.Common.Mappers;
+using Core.Common.Mappers.Registry;
 
 namespace Core.Common.Mapper
 {
