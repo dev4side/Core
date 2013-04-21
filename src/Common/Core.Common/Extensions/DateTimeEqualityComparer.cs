@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace Core.Extensions
+namespace Core.Common.Extensions
 {
     public class DateTimeEqualityComparer : IEqualityComparer
     {

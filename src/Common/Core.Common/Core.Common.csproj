@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Core.Common</RootNamespace>
     <AssemblyName>Core.Common</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -62,6 +62,13 @@
     <Compile Include="Constants\ExceptionMessagesConstants.cs" />
     <Compile Include="Constants\NinjectConstants\NinjectConstructorParameters.cs" />
     <Compile Include="Converters\Converter.cs" />
+    <Compile Include="Extensions\DateTimeEqualityComparer.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\RegexExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Mappers\MapToConfigSection.cs" />
     <Compile Include="Mappers\MapToRegistryKey.cs" />
     <Compile Include="Mappers\MapToRegistryKeyProperty.cs" />
