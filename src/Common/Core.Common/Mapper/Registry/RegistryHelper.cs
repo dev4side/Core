@@ -29,29 +29,12 @@ namespace Core.Common.Mapper.Registry
 
         internal static object Read(string path, string keyName)
         {
-            RegistryKey key = BaseRegistryKey.OpenSubKey(path);
-            if (key == null)
-            {
-                return null;
-            }
-            // If the RegistryKey exists I get its value
-            // or null is returned.
-            return key.GetValue(keyName);
+            return Microsoft.Win32.Registry.GetValue(path, keyName, null);
         }
 
         internal static void Write(string path, string keyName, object obj)
         {
-            if (obj == null)
-                obj = "";
-            RegistryKey key = BaseRegistryKey.OpenSubKey(path, true);
-            try
-            {
-                key.SetValue(keyName, obj, RegistryValueKind.String);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            Microsoft.Win32.Registry.SetValue(path, keyName, obj);
         }
     }
 }

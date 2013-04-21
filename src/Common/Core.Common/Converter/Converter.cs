@@ -1,5 +1,5 @@
 using System;
-using Core.Common.Utils;
+using Core.Common.Mapper.ConversionMethod;
 
 namespace Core.Common.Converters
 {

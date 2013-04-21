@@ -1,4 +1,4 @@
-namespace Core.Common.Utils
+namespace Core.Common.Mapper.ConversionMethod
 {
     public enum BooleanConversion
     {
