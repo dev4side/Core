@@ -58,8 +58,8 @@
     <Compile Include="Cache\Exceptions\CacheException.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Collection\DictionaryWithDefaultValue.cs" />
-    <Compile Include="Constant\ExceptionMessagesConstants.cs" />
-    <Compile Include="Constant\NinjectConstants\NinjectConstructorParameters.cs" />
+    <Compile Include="Constants\ExceptionMessagesConstants.cs" />
+    <Compile Include="Constants\NinjectConstants\NinjectConstructorParameters.cs" />
     <Compile Include="Converter\Converter.cs" />
     <Compile Include="Extension\DateTimeEqualityComparer.cs" />
     <Compile Include="Extension\EnumerableExtensions.cs" />

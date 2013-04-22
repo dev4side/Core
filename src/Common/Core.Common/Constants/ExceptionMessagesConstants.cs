@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Core.Common.Constants
+﻿namespace Core.Common.Constants
 {
     /// <summary>
     /// 

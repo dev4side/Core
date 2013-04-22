@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Common.Collections
+namespace Core.Common.Collection
 {
     /// <summary>
     /// 

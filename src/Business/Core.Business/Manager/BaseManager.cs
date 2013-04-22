@@ -26,10 +26,11 @@ namespace Core.Business.Manager
         protected IUnitOfWorkFactory UnitOfWorkFactory { get; private set; }
 
         protected IUnitOfWork CurrentUnitOfWork { get; private set; }
-        
+
         protected IRepository<TEntity, TKey> Repository
         {
-            get {
+            get
+            {
                 return _currentRepository ?? (_currentRepository = RepositoryFactory.GetRepository<TEntity>(CurrentUnitOfWork));
             }
         }

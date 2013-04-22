@@ -23,11 +23,9 @@ namespace Core.Common.Converters
                 switch (booleanConversion)
                 {
                     case RegistryConversion.BoolEnabledDisabled:
-                        if (valueAsBool) return "Enabled";
-                        return "Disabled";
+                        return valueAsBool ? "Enabled" : "Disabled";
                     case RegistryConversion.BoolBit:
-                        if (valueAsBool) return 1;
-                        return 0;
+                        return valueAsBool ? 1 : 0;
                     default:
                         return Convert.ToBoolean(value);
                 }

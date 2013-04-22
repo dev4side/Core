@@ -21,6 +21,11 @@ namespace Core.Business.Factory
         /// <returns></returns>
         public TManger GetManager<TManger>(IUnitOfWork unitOfWork) where TManger : IManagerMarker
         {
+            if (unitOfWork == null)
+            {
+                throw new ArgumentNullException("unitOfWork");
+            }
+
             if (!typeof (TManger).IsInterface)
             {
                 throw new ManagerException(
