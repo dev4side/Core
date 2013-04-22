@@ -9,7 +9,7 @@ namespace Core.Business.Factory
         /// Get the correct manager for the <typeparamref name="TManger"/> type.
         /// </summary>
         /// <typeparam name="TManger">The type of manager.</typeparam>
-        /// <param name="unitOfWork">The unit of work </param>
+        /// <param name="unitOfWork">The unit of work.</param>
         /// <returns>The instance of <typeparamref name="TManger"/> type.</returns>
         TManger GetManager<TManger>(IUnitOfWork unitOfWork) where TManger : IManagerMarker;
     }

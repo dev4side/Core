@@ -1,16 +1,12 @@
-using Core.Common.Mapper.Registry;
 using System;
 using Core.Common.Mapper.Registry.Attribute;
 
-namespace Core.Common.Converters
+namespace Core.Common.Converter
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public static class Converter
     {
         /// <summary>
-        /// Check if the given object is a boolean, and if true, applies inverse conversion with the given BooleanConversion rule
+        /// Checks if the given object is a boolean, and if true, applies inverse conversion with the given BooleanConversion rule
         /// This is the opposit of ConvertToBoolean
         /// </summary>
         /// <param name="value"></param>
@@ -20,7 +16,7 @@ namespace Core.Common.Converters
         {
             if (value.GetType().FullName.ToLower() == "system.boolean")
             {
-                bool valueAsBool = (bool)value;
+                var valueAsBool = (bool)value;
                 switch (booleanConversion)
                 {
                     case RegistryConversion.BoolEnabledDisabled:
@@ -71,7 +67,7 @@ namespace Core.Common.Converters
                         case "":
                             return false;
                     }
-                    throw new Exception(String.Format("Unable to convert {0} into bool", value));
+                    throw new Exception(String.Format("Unable to convert {0} into bool.", value));
                 case RegistryConversion.BoolBit:
                     return Convert.ToBoolean(Convert.ToInt32(value));
                 default:

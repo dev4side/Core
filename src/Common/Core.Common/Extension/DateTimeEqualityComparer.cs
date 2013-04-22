@@ -3,6 +3,9 @@ using System.Collections;
 
 namespace Core.Common.Extension
 {
+    /// <summary>
+    /// Defines methods to support the comparison of DateTime objects for equality.
+    /// </summary>
     public class DateTimeEqualityComparer : IEqualityComparer
     {
         private readonly TimeSpan _maxDifference;
@@ -12,6 +15,12 @@ namespace Core.Common.Extension
             this._maxDifference = maxDifference;
         }
 
+        /// <summary>
+        /// Determines whether the specified objects are equal.
+        /// </summary>
+        /// <param name="x">The first object to compare.</param>
+        /// <param name="y">The second object to compare.</param>
+        /// <returns></returns>
         public new bool Equals(object x, object y)
         {
             if (x == null || y == null)
@@ -30,9 +39,14 @@ namespace Core.Common.Extension
             return x.Equals(y);
         }
 
+        /// <summary>
+        /// Returns a hash code for the specified object.
+        /// </summary>
+        /// <param name="obj">The System.Object for which a hash code is to be returned.</param>
+        /// <returns>A hash code for the specified object.</returns>
         public int GetHashCode(object obj)
         {
-            throw new NotImplementedException();
+            return obj.GetHashCode();
         }
     }
 }

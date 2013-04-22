@@ -117,7 +117,7 @@ namespace Core.Services.Conversion.Adapters
             }
             catch (ObjectDisposedException)
             {
-				throw new DtoEntityAdapterConversionException(entity.GetType(), typeof(TDto), ExceptionMessagesConstants.UNIT_OF_WORK_DISPOSED_MESSAGE);
+                throw new DtoEntityAdapterConversionException(entity.GetType(), typeof(TDto), ExceptionMessagesConstants.UnitOfWorkDisposedMessage);
             }
             
         }
@@ -130,7 +130,7 @@ namespace Core.Services.Conversion.Adapters
             }
             catch (ObjectDisposedException)
             {
-                throw new DtoEntityAdapterConversionException(typeof(TEntity), typeof(TDto), ExceptionMessagesConstants.UNIT_OF_WORK_DISPOSED_MESSAGE);
+                throw new DtoEntityAdapterConversionException(typeof(TEntity), typeof(TDto), ExceptionMessagesConstants.UnitOfWorkDisposedMessage);
             }
         }
         #endregion

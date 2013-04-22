@@ -5,7 +5,13 @@ namespace Core.Common.Extension
 {
     public static class EnumExtensions
     {
-        //checks if the value contains the provided type
+        /// <summary>
+        /// Checks if the value contains the provided object.
+        /// </summary>
+        /// <typeparam name="T">The type in which applicate the comparison.</typeparam>
+        /// <param name="type">The enumeration in which applicate the comparison.</param>
+        /// <param name="value">The object for the comparison.</param>
+        /// <returns>true if the <param name="value"/> contains the provided object, otherwise false.</returns>
         public static bool Has<T>(this System.Enum type, T value)
         {
             try
@@ -17,8 +23,14 @@ namespace Core.Common.Extension
                 return false;
             }
         }
-
-        //checks if the value is only the provided type
+        
+        /// <summary>
+        /// Checks if the value is only the provided type.
+        /// </summary>
+        /// <typeparam name="T">The type in which applicate the comparison.</typeparam>
+        /// <param name="type">The enumeration in which applicate the comparison.</param>
+        /// <param name="value">The object for the comparison.</param>
+        /// <returns>true if the <param name="value"/> is the provided object, otherwise false.</returns>
         public static bool Is<T>(this System.Enum type, T value)
         {
             try

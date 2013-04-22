@@ -3,7 +3,7 @@
 namespace Core.Common.Cache.Exceptions
 {
     /// <summary>
-    /// Represents errors that occur during execution cache layer
+    /// Represents errors that occur during execution cache layer.
     /// </summary>
     public class CacheException : Exception
     {

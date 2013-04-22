@@ -1,5 +1,4 @@
-﻿using Core.Common.Converters;
-using Core.Common.Mapper.Registry.Attribute;
+﻿using Core.Common.Mapper.Registry.Attribute;
 using System;
 using Core.Common.Mapper.Registry.Exception;
 
@@ -40,7 +39,7 @@ namespace Core.Common.Mapper.Registry
                                         String.Format("no value in path:{0} and key:{1} in the windows registry. Check how you have mapped" +
                                                       "property {2} of type {3}",
                                                       registryKeyProperty.Path, registryKeyProperty.Key, propertyInfo.Name, result.GetType()));
-                                propertyInfo.SetValue(result, Converter.ConvertToPropertyType(registryKeyValue, propertyInfo.PropertyType, registryKeyProperty.RegistryConversion), null);
+                                propertyInfo.SetValue(result, Converter.Converter.ConvertToPropertyType(registryKeyValue, propertyInfo.PropertyType, registryKeyProperty.RegistryConversion), null);
                             }
                         }
                     }
@@ -77,7 +76,7 @@ namespace Core.Common.Mapper.Registry
                                     if (attribute is MapToRegistryKeyPropertyAttribute)
                                     {
                                         var registryKeyProperty = attribute as MapToRegistryKeyPropertyAttribute;
-                                        Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.RegistryConversion));
+                                        Write(registryKeyProperty.Path, registryKeyProperty.Key, Converter.Converter.TryInverseBooleanConvertion(propertyValue, registryKeyProperty.RegistryConversion));
                                     }
                                 }
                             }

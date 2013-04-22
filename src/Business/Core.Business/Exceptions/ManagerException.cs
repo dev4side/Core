@@ -3,7 +3,7 @@
 namespace Core.Business.Exceptions
 {
     /// <summary>
-    /// Represents errors that occur during execution of a manager into the Business layer
+    /// Represents errors that occur during execution of a manager into the business layer.
     /// </summary>
     public class ManagerException : Exception
     {

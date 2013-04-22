@@ -14,7 +14,7 @@ namespace Core.Business.Factory
         /// Get the correct manager for the <typeparamref name="TManger"/> type.
         /// </summary>
         /// <typeparam name="TManger">The type of manager.</typeparam>
-        /// <param name="unitOfWork">The unit of work </param>
+        /// <param name="unitOfWork">The unit of work.</param>
         /// <returns>The instance of <typeparamref name="TManger"/> type.</returns>
         public TManger GetManager<TManger>(IUnitOfWork unitOfWork) where TManger : IManagerMarker
         {
@@ -31,8 +31,8 @@ namespace Core.Business.Factory
                         "make sure you just did not just made a typo: GetManager<BodyPartManager> insted of GetManager<IBodyPartManager>",
                         typeof (TManger).FullName));
             }
-            
-            return ObjectFactory.Get<TManger>(new ConstructorArgument(NinjectConstructorParameters.UNIT_OF_WORK_PARAMENTER_NAME, unitOfWork));
+
+            return ObjectFactory.Get<TManger>(new ConstructorArgument(NinjectConstructorParameters.UnitOfWorkParameterName, unitOfWork));
         }
     }
 }
