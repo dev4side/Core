@@ -1,11 +1,12 @@
 ﻿using System;
 using Core.Data.Exceptions;
 using Core.Data.Exceptions.Factory;
+using Core.Data.NHibernate.Base;
 using NHibernate;
 using NHibernate.Exceptions;
 using TransactionException = Core.Data.Exceptions.TransactionException;
 
-namespace Core.Data.NHibernate
+namespace Core.Data.NHibernate.UnitOfWork
 {
     public class NHibernateUnitOfWorkTransactional : NHibBaseUnitOfWork
     {

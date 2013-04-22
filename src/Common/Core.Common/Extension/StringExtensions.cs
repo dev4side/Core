@@ -2,11 +2,11 @@
 {
     public static class StringExtensions
     {
-        private const int DEFAULT_CHARACTERS_TO_TRUNCATE = 20;
+        private const int DefaultCharectersToTruncate = 20;
 
         public static string TruncateWithDots(this string text)
         {
-            return text.TruncateWithDots(DEFAULT_CHARACTERS_TO_TRUNCATE);
+            return text.TruncateWithDots(DefaultCharectersToTruncate);
         }
 
         public static string TruncateWithDots(this string text, int charactersToTruncate)

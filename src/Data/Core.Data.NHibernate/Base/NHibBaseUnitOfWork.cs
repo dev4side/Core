@@ -13,7 +13,7 @@ using Core.Data.NHibernate.Transform;
 using NHibernate.Transform;
 using NHibernate.Linq;
 
-namespace Core.Data.NHibernate
+namespace Core.Data.NHibernate.Base
 {
     /// <summary>
     ///Concrete class of UnitOfWork using the NHib implementation

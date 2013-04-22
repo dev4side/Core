@@ -63,7 +63,6 @@
     <Compile Include="Converter\Converter.cs" />
     <Compile Include="Extension\DateTimeEqualityComparer.cs" />
     <Compile Include="Extension\EnumerableExtensions.cs" />
-    <Compile Include="Extension\EnumExtensions.cs" />
     <Compile Include="Extension\LinqExtensions.cs" />
     <Compile Include="Extension\RegexExtensions.cs" />
     <Compile Include="Extension\StringExtensions.cs" />

@@ -9,7 +9,6 @@ namespace Core.Common.Util
 	/// </summary>
 	public class StringEnum
 	{
-
 		private Type _enumType;
 		private static Hashtable _stringValues = new Hashtable();
 
