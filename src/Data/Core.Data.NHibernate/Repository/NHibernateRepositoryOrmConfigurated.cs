@@ -2,6 +2,7 @@
 using Core.Data.Exceptions;
 using Core.Data.Interfaces.Entity;
 using Core.Data.Interfaces.Repository;
+using Core.Data.NHibernate.Base;
 using Core.Data.NHibernate.UnitOfWork;
 
 namespace Core.Data.NHibernate.Repository

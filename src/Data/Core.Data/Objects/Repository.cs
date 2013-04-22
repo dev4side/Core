@@ -92,7 +92,9 @@ namespace Core.Data.Objects
             Log.Debug("GetById {0} id: {1}", this.CurrentTypeName, id.ToString());
             TEntity result = this.UnitOfWork.GetById<TEntity, TKey>(id);
             if (result == null)
-                throw new RepositoryException(String.Format("There is no {0} with id {1}", typeof(TEntity).Name, id));
+            {
+                throw new RepositoryException(String.Format("There is no {0} with id {1}", typeof (TEntity).Name, id));
+            }
             return result;
         }
 
@@ -122,10 +124,13 @@ namespace Core.Data.Objects
             IEnumerable<IJoin> joins, bool appendFirstEntityId = true) where TDto : class, new()
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug("GetDtoByProjections projections: #{0}, restrictions: #{1}, joins: #{2}",
-                    projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
-                    restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
-                    joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "");
+                          projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
+                          restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
+                          joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "");
+            }
+
             return this.UnitOfWork.GetDtosByprojections<TEntity, TDto>(projections, restrictions, joins, appendFirstEntityId);
         }
 
@@ -133,12 +138,15 @@ namespace Core.Data.Objects
             IEnumerable<IJoin> joins, IEnumerable<IOrdination> ordinations, bool appendFirstEntityId = true) where TDto : class, new()
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug(
                     "GetDtoByProjections projections: #{0}, restrictions: #{1}, joins: #{2}, ordinations: #{3}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",
                     ordinations != null ? ordinations.Count().ToString(CultureInfo.InvariantCulture) : "");
+            }
+
             return this.UnitOfWork.GetDtosByprojections<TEntity, TDto>(projections, restrictions, joins, ordinations, appendFirstEntityId);
         }
 
@@ -146,12 +154,15 @@ namespace Core.Data.Objects
             IEnumerable<IJoin> joins, int pageIndex, int pageSize) where TDto : class, new()
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug(
                     "GetPagedDtoByProjections projections: #{0}, restrictions: #{1}, joins: #{2} with pageIndex: #{3}, pageSize: #{4}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",
                     pageIndex.ToString(CultureInfo.InvariantCulture), pageSize.ToString(CultureInfo.InvariantCulture));
+            }
+
             return this.UnitOfWork.GetPagedDtosByprojections<TEntity, TDto>(projections, restrictions, joins, pageIndex, pageSize);
         }
 
@@ -159,6 +170,7 @@ namespace Core.Data.Objects
             IEnumerable<IJoin> joins, int pageIndex, int pageSize, IEnumerable<IOrdination> ordinations) where TDto : class, new()
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug(
                     "GetPagedDtoByProjections projections: #{0}, restrictions: #{1}, joins: #{2} with pageIndex: #{3}, pageSize: #{4}, ordinations: #{5}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
@@ -166,6 +178,8 @@ namespace Core.Data.Objects
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",
                     pageIndex.ToString(CultureInfo.InvariantCulture), pageSize.ToString(CultureInfo.InvariantCulture),
                     ordinations != null ? ordinations.Count().ToString(CultureInfo.InvariantCulture) : "");
+            }
+
             return this.UnitOfWork.GetPagedDtosByprojections<TEntity, TDto>(projections, restrictions, joins, pageIndex, pageSize, ordinations);
         }
 
@@ -173,26 +187,35 @@ namespace Core.Data.Objects
             IEnumerable<IJoin> joins, IEnumerable<IOrdination> ordinations)
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug(
                     "GetSqlFromHql projections: #{0}, restrictions: #{1}, joins: #{2}, ordinations: #{3}",
                     projections != null ? projections.Count().ToString(CultureInfo.InvariantCulture) : "",
                     restrictions != null ? restrictions.Count().ToString(CultureInfo.InvariantCulture) : "",
                     joins != null ? joins.Count().ToString(CultureInfo.InvariantCulture) : "",
                     ordinations != null ? ordinations.Count().ToString(CultureInfo.InvariantCulture) : "");
+            }
+
             return this.UnitOfWork.GetSqlFromHql<TEntity>(projections, restrictions, joins, ordinations);
         }
 
         public IList<TReturnType> ExecuteSqlQuery<TReturnType>(string sqlQuery) where TReturnType : class
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug("ExecuteSqlQuery SQL query: #{0}", sqlQuery);
+            }
+
             return this.UnitOfWork.ExecuteSqlQuery<TReturnType>(sqlQuery);
         }
 
         public TReturnType ExecuteSqlQueryForField<TReturnType>(string sqlQuery)
         {
             if (Log.IsDebugEnabled())
+            {
                 Log.Debug("ExecuteSqlQuery SQL query: #{0}", sqlQuery);
+            }
+
             return this.UnitOfWork.ExecuteSqlQueryForField<TReturnType>(sqlQuery);
         }
     }

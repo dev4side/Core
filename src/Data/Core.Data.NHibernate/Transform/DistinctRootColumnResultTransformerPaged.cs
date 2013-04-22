@@ -29,7 +29,10 @@ namespace Core.Data.NHibernate.Transform
 
             foreach (var dtoInList in list)
             {
-                if (dtoInList == null) continue;
+                if (dtoInList == null)
+                {
+                    continue;
+                }
                 var identity = (Identity)dtoInList;
                 distinctIdentities.Add(identity.Id, identity);
             }
@@ -44,15 +47,23 @@ namespace Core.Data.NHibernate.Transform
 
                 Identity candidateIdentityInDictionary;
                 if (base.TryGetValue(key, out candidateIdentityInDictionary))
+                {
                     candidateIdentityInDictionary.MergeTupleProperties(identity);
-                else base.Add(key, identity);
+                }
+                else
+                {
+                    base.Add(key, identity);
+                }
             }
 
             public IList ConvertToListWithTuples()
             {
                 IList result = new List<object>();
                 foreach (var value in Values)
+                {
                     result.Add(value.Dto);
+                }
+
                 return result;
             }
         }
@@ -72,8 +83,11 @@ namespace Core.Data.NHibernate.Transform
             
             public bool AddNew(object key)
             {
-                if (base.Contains(key)) return true;
-                if ((CanInsertNewKey() && !base.Contains(key)))
+                if (base.Contains(key))
+                {
+                    return true;
+                }
+                if (CanInsertNewKey() && !base.Contains(key))
                 {
                     base.Add(key);
                     return true;
@@ -85,7 +99,9 @@ namespace Core.Data.NHibernate.Transform
             private bool CanInsertNewKey()
             {
                 if (_refusedToAdd.Count >= _starIndex)
+                {
                     return base.Count - _elementsNumber < 0;
+                }
                 return false;
             }
         }

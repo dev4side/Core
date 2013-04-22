@@ -71,7 +71,10 @@ namespace Core.Data.Objects.Collections
 
         public bool IsReadOnly
         {
-            get { return (bool) _list.GetType().GetProperty("IsReadOnly").GetValue(_list, null); }
+            get
+            {
+                return (bool) _list.GetType().GetProperty("IsReadOnly").GetValue(_list, null);
+            }
         }
 
         public bool Remove(T item)
@@ -88,8 +91,7 @@ namespace Core.Data.Objects.Collections
         {
             return _list.GetEnumerator();
         }
-
-
+        
         private void SetParentToChild(T obj)
         {
             typeof(T).GetProperty(_childPropertyToInverse).SetValue(obj, _parentEntity, null);

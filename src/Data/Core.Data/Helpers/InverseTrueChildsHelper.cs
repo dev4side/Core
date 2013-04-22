@@ -41,6 +41,5 @@ namespace Core.Data.Helpers
                 throw new Exception(String.Format("The provided propertyNameWhereParentBelongs [{0}] does not exists in {1} entity", propertyNameWhereParentBelongs, typeof(T)));
             return propertyInfo;
         }
-
     }
 }

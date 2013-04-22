@@ -1,5 +1,6 @@
 ﻿using Core.Data.Interfaces.Entity;
 using Core.Data.Interfaces.Repository;
+using Core.Data.NHibernate.Base;
 
 namespace Core.Data.NHibernate
 {

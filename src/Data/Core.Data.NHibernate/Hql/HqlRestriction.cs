@@ -10,7 +10,7 @@ namespace Core.Data.NHibernate.Hql
     {
         private string _restriction;
         private string _typeName;
-        IJoin _requiredJoin;
+        private IJoin _requiredJoin;
 
         public HqlRestriction(Type type, string restriction)
         {
@@ -71,7 +71,9 @@ namespace Core.Data.NHibernate.Hql
             foreach (var stringToConcat in stringsToConcat)
             {
                 if (!string.IsNullOrEmpty(requiredJoin.ToString()))
+                {
                     requiredJoin.Append(separatorChar);
+                }
                 requiredJoin.Append(stringToConcat);
             }
 

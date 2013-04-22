@@ -56,12 +56,4 @@ namespace Core.Data.NHibernate.Factory
                                            new ConstructorArgument("ordinationType", ordinationType));
         }
     }
-
-    // questo lo commento perchè lo avevo creato per non dovermi portare dietro sempre un generic.
-    // valutare se è possibile levarlo (penso proprio di si)
-    // miro
-    //public class CmsRepositoryFactory : RepositoryFactory, ICmsRepositoryFactory
-    //{
-
-    //}
 }

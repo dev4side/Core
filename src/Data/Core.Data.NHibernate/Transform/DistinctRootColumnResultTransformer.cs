@@ -22,19 +22,29 @@ namespace Core.Data.NHibernate.Transform
         {
             public new void Add(object key, Identity identity)
             {
-                if (key == null) return;
-
+                if (key == null)
+                {
+                    return;
+                }
+                    
                 Identity candidateIdentityInDictionary;
                 if (base.TryGetValue(key, out candidateIdentityInDictionary))
+                {
                     candidateIdentityInDictionary.MergeTupleProperties(identity);
-                else base.Add(key, identity);
+                }
+                else
+                {
+                    base.Add(key, identity);
+                }
             }
 
             public IList ConvertToListWithTuples()
             {
                 IList result = new List<object>();
                 foreach (var value in Values)
+                {
                     result.Add(value.Dto);
+                }
                 return result;
             }
         }

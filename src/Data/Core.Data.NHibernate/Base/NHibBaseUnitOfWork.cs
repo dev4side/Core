@@ -27,9 +27,15 @@ namespace Core.Data.NHibernate.Base
 
         public virtual void Dispose()
         {
-            if (this.Session == null) return;
+            if (this.Session == null)
+            {
+                return;
+            }
             if (this.Session.IsDirty())
+            {
                 this.Flush();
+            }
+
             this.Session.Dispose();
             this.Session = null;
         }
@@ -74,7 +80,7 @@ namespace Core.Data.NHibernate.Base
             var hql = HqlGenerator.GetEntitiesQuery<TEntity>(constraints, associations);
             Log.Debug("A Filter constraints is generated and submitted: {0}", hql);
             var result = Session.CreateQuery(hql).List<TEntity>();
-            Log.Debug("Filter query has returned {0} items", result.Count.ToString());
+            Log.Debug("Filter query has returned {0} items", result.Count.ToString(CultureInfo.InvariantCulture));
             return result;
         }
 
@@ -83,7 +89,7 @@ namespace Core.Data.NHibernate.Base
             var hql = HqlGenerator.GetFetchEntitiesQuery<TEntity>(constraints, associations, fetchEntities);
             Log.Debug("A Filter constraints is generated and submitted: {0}", hql);
             var result = Session.CreateQuery(hql).SetResultTransformer(new DistinctRootEntityResultTransformer()).List<TEntity>();
-            Log.Debug("Filter query has returned {0} items", result.Count.ToString());
+            Log.Debug("Filter query has returned {0} items", result.Count.ToString(CultureInfo.InvariantCulture));
             return result;
         }
        
@@ -148,8 +154,10 @@ namespace Core.Data.NHibernate.Base
 
         public IList<TReturnType> ExecuteSqlQuery<TReturnType>(string sqlQuery) where TReturnType : class
         {
-            if(string.IsNullOrEmpty(sqlQuery))
+            if (string.IsNullOrEmpty(sqlQuery))
+            {
                 throw new Exception("Sql query could not be null or empty.");
+            }
 
             var query = Session.CreateSQLQuery(sqlQuery);
             return query.SetResultTransformer(Transformers.AliasToBean<TReturnType>()).List<TReturnType>();
@@ -157,8 +165,10 @@ namespace Core.Data.NHibernate.Base
 
         public TReturnType ExecuteSqlQueryForField<TReturnType>(string sqlQuery)
         {
-            if(string.IsNullOrEmpty(sqlQuery))
+            if (string.IsNullOrEmpty(sqlQuery))
+            {
                 throw new Exception("Sql query could not be null or empty.");
+            }
 
             var query = Session.CreateSQLQuery(sqlQuery);
             return query.UniqueResult<TReturnType>();

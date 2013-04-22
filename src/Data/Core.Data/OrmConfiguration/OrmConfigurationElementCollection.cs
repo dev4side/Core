@@ -7,14 +7,13 @@ namespace Core.Data.OrmConfiguration
     {
         public OrmConfigurationElement this[int index]
         {
-            get
-            {
-                return base.BaseGet(index) as OrmConfigurationElement;
-            }
+            get { return base.BaseGet(index) as OrmConfigurationElement; }
             set
             {
                 if (base.BaseGet(index) != null)
+                {
                     base.BaseRemoveAt(index);
+                }
                 this.BaseAdd(index, value);
             }
         }

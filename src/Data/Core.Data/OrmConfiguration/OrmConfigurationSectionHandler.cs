@@ -12,6 +12,5 @@ namespace Core.Data.OrmConfiguration
                 return this["ormConfigurations"] as OrmConfigurationElementCollection;
             }
         }
-
     }
 }

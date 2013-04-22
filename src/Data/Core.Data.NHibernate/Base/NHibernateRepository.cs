@@ -9,7 +9,7 @@ using Ninject;
 using Core.Log;
 using System.Globalization;
 
-namespace Core.Data.NHibernate
+namespace Core.Data.NHibernate.Base
 {
     /// <summary>
     /// base repository di Nhibernate. contiente tutte le implentazioni ad hoc di NHIB con pattern IUnitOfWork

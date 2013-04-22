@@ -7,13 +7,6 @@ using Core.Kernel.Exceptions;
 
 namespace Core.Kernel.Helpers
 {
-    //nested type perche non ha un vero utilizzo al difuori dall autobinder
-    public class ModuleBinder
-    {
-        public Type Interface { get; set; }
-        public Type Concrete { get; set; }
-    }
-
     public class AutoBinder
     {
         public static IEnumerable<ModuleBinder> GetBindingsBasedOnGenericInterface(Type interfaceAsGeneric)
@@ -22,10 +15,10 @@ namespace Core.Kernel.Helpers
             var assemblyToSearchIn = interfaceAsGeneric.Assembly;
             var concrateImplementationOfGenericInterface = GetConcrateImplementationOfGenericInterface(interfaceAsGeneric, assemblyToSearchIn);
 
-            foreach (var concrateType in concrateImplementationOfGenericInterface)
+            foreach (var concreteType in concrateImplementationOfGenericInterface)
             {
 
-                var genericInterfacesToBind = (from interfaceAsType in concrateType.GetInterfaces()
+                var genericInterfacesToBind = (from interfaceAsType in concreteType.GetInterfaces()
                                                where
                                                    interfaceAsType.IsGenericType &&
                                                    interfaceAsType.GetGenericTypeDefinition() == interfaceAsGeneric
@@ -35,7 +28,8 @@ namespace Core.Kernel.Helpers
                 
                 if (interfacesFound > 1)
                 {
-                    throw new DependencyInjectionException("todo");
+                    throw new DependencyInjectionException(
+                        string.Format("Found more than one interface for the same concrete '{0}' type, fix it!", concreteType.Name));
                 }
                 
                 if (interfacesFound == 1)
@@ -43,7 +37,7 @@ namespace Core.Kernel.Helpers
                     result.Add(new ModuleBinder()
                                    {
                                        Interface = genericInterfacesToBind.ElementAt(0),
-                                       Concrete = concrateType
+                                       Concrete = concreteType
                                    });
                 }
             }
@@ -110,7 +104,7 @@ namespace Core.Kernel.Helpers
             return concrate;
         }
 
-        private static List<Type> GetInterfaceTypesWithTheSameNamespece(Type interfacesSampleType)
+        private static IEnumerable<Type> GetInterfaceTypesWithTheSameNamespece(Type interfacesSampleType)
         {
             string interfaceNamespaceToMatch = interfacesSampleType.Namespace;
             var interfaceAssembly = interfacesSampleType.Assembly;

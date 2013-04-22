@@ -9,11 +9,6 @@ namespace Core.Data.Helpers
     {
         public static T CloneAsNewEntity<T>(T entity) where T : new()
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-
             var entityType = typeof(T);
             var entityIstanceToReturn = (T)Activator.CreateInstance(entityType);
             var props = entityType.GetProperties();
@@ -33,7 +28,6 @@ namespace Core.Data.Helpers
 
                 var pIstancePropertyValue = entityType.InvokeMember(propertyInfo.Name, BindingFlags.GetProperty, null, entity, null);
                 entityPropertyToFill.SetValue(entityIstanceToReturn, pIstancePropertyValue, null);
-
             }
 
             return entityIstanceToReturn;

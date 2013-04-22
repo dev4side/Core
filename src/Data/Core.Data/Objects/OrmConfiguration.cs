@@ -30,8 +30,12 @@ namespace Core.Data.Objects
         private FileInfo GetFileInfoIfExists(string configrationFilePath)
         {
             string applicationPath = AppDomain.CurrentDomain.BaseDirectory;
-            if(!applicationPath.EndsWith(@"\"))
+            
+            if (!applicationPath.EndsWith(@"\"))
+            {
                 applicationPath = String.Concat(applicationPath, @"\");
+            }
+
             return new FileInfo(String.Concat(applicationPath, configrationFilePath));
         }
     }

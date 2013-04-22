@@ -6,11 +6,8 @@ namespace Core.Data.Exceptions
     public class TransactionException : RepositoryException
     {
 
-        public TransactionException(string message, Exception innerException): base(
-            message,innerException)
-        {
-            
-        }
+        public TransactionException(string message, Exception innerException)
+            : base(message,innerException) { }
 
         public override string Message
         {
@@ -18,8 +15,8 @@ namespace Core.Data.Exceptions
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("##################### TransactionException ##################");
-                sb.AppendLine("An error occurred in the transaction. Always check the PREVIOUS log information for usefull hints about this kind of excpetions.");
-                sb.AppendLine(String.Concat("The transaction reported: ",base.Message));
+                sb.AppendLine("An error occurred in the transaction. Always check the PREVIOUS log information for usefull hints about this kind of excetions.");
+                sb.AppendLine(String.Concat("The transaction reported: ", base.Message));
                 sb.AppendLine(String.Concat("Inner Messages: ", FormatInnerMessage(base.InnerException)));
                 return sb.ToString();
             }

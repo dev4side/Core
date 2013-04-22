@@ -27,6 +27,4 @@ namespace Core.Data.Objects.Collections
                                     "Please check that your config contains a defined rtype under <ormConfiguration><includeTypes> <type name=\"NAME\"/>", typeAsStrig));
        }
     }
-
-   
 }

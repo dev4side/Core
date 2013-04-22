@@ -53,30 +53,28 @@ namespace Core.Data.NHibernate.Transform
                 int setterEnumerator = i - 1;
                 var setterType = setters[setterEnumerator].Method.GetParameters()[0].ParameterType;
                 //  handle if tuple is a list
-                if (setterType.IsGenericType && setterType.GetGenericTypeDefinition() == typeof(IList<>))
+                if (setterType.IsGenericType && setterType.GetGenericTypeDefinition() == typeof (IList<>))
                 {
                     Type itemType = setterType.GetGenericArguments()[0];
-                    var generic = typeof(List<>);
+                    var generic = typeof (List<>);
                     var specific = generic.MakeGenericType(itemType);
                     var list = GetIstanceAsIListByType(specific) as IList;
                     if (tuple[i] != null)
                     {
-                        if (itemType == typeof(string))
+                        if (itemType == typeof (string))
                             list.Add(tuple[i].ToString());
                         else
                             list.Add(tuple[i]);
                     }
-                    
+
                     setters[setterEnumerator].Set(dto, list);
                 }
-                // handle if tuple is enum
-                //else if (tuple[i] != null && tuple[i].GetType().IsEnum)
-                //{
-                //    setters[setterEnumerator].Set(dto, (int)tuple[i]);
-                //}
                 else
+                {
                     setters[setterEnumerator].Set(dto, tuple[i]);
+                }
             }
+
             return dto;
         }
 
@@ -84,7 +82,9 @@ namespace Core.Data.NHibernate.Transform
         {
             ObjectActivator candidateActivator;
             if (ActivatorDic.TryGetValue(specific, out candidateActivator))
+            {
                 return candidateActivator(null);
+            }
 
             candidateActivator = GetActivator(specific.GetConstructors().First(x => !x.GetParameters().Any()));
 
@@ -94,14 +94,18 @@ namespace Core.Data.NHibernate.Transform
 
         private void InitializeGettersAndSettersIfNeeded(string[] aliases)
         {
+            if (aliases == null)
+            {
+                throw new ArgumentNullException("aliases");
+            }
+
             if (_isClassChecked)
+            {
                 return;
+            }
 
             var listSetters = new List<ISetter>();
             var listGetters = new List<IGetter>();
-
-            if (aliases == null)
-                throw new ArgumentNullException("aliases");
 
             try
             {
@@ -182,8 +186,6 @@ namespace Core.Data.NHibernate.Transform
             return compiled;
         }
 
-        //############################################################ classes
-
         internal sealed class Identity
         {
             private ISetter[] _settersList;
@@ -222,25 +224,12 @@ namespace Core.Data.NHibernate.Transform
                         var candidateItemToAdd = listtoExtractItem[0];
                         if (currentListToAdd != null)
                         {
-                            //if (IsUnique(this.Dto, currentListToAdd, _settersList[i], _getterList[i]))
-                            //{
-                                currentListToAdd.Add(candidateItemToAdd);
-                                _settersList[i].Set(this.Dto, currentListToAdd);
-                            //}
+                            currentListToAdd.Add(candidateItemToAdd);
+                            _settersList[i].Set(this.Dto, currentListToAdd);
                         }
                     }
                 }
             }
-
-            //private bool IsUnique(object dto, object candidate, ISetter setter, IGetter getter)
-            //{
-
-            //    var test = getter.Get(dto) as IList;
-
-            //    return test.Contains(candidate);
-
-            //}
-        
         }        
     }
 }
