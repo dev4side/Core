@@ -8,17 +8,14 @@ using Ninject.Parameters;
 
 namespace Core.Business.Factory
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ManagerFactory : IManagerFactory
     {
         /// <summary>
-        /// 
+        /// Get the correct manager for the <typeparamref name="TManger"/> type.
         /// </summary>
-        /// <typeparam name="TManger"></typeparam>
-        /// <param name="unitOfWork"></param>
-        /// <returns></returns>
+        /// <typeparam name="TManger">The type of manager.</typeparam>
+        /// <param name="unitOfWork">The unit of work </param>
+        /// <returns>The instance of <typeparamref name="TManger"/> type.</returns>
         public TManger GetManager<TManger>(IUnitOfWork unitOfWork) where TManger : IManagerMarker
         {
             if (unitOfWork == null)

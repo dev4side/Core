@@ -61,6 +61,7 @@ namespace Core.Validation
         private static string BuildMessageFromParams(params string[] message)
         {
             if (message != null)
+            {
                 switch (message.Length)
                 {
                     case 0:
@@ -70,7 +71,9 @@ namespace Core.Validation
                     default:
                         return FormatLogMessage(message);
                 }
-            throw  new NullReferenceException("Please provide a message in for the validator");
+            }
+
+            throw new NullReferenceException("Please provide a message in for the validator");
         }
 
         private static string FormatLogMessage(string[] message)

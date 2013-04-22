@@ -9,7 +9,7 @@ namespace Core.Validation.AOP
 {
     public class DtoValidatorAttribute : InterceptAttribute
     {
-        private Type _typeToValidate;
+        private readonly Type _typeToValidate;
         private const int ORDER = 3;
 
         public DtoValidatorAttribute(Type typeToValidate)

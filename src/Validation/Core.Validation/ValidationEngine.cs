@@ -7,7 +7,7 @@ namespace Core.Validation
     public static class ValidationEngine
     {
         /// <summary>
-        /// Prova a validare un oggetto. Se non è presnete nessuna regola di validazione torna null
+        /// Prova a validare un oggetto. Se non è presente nessuna regola di validazione torna null
         /// </summary>
         public static ValidationResult TryValidate<T>(T objectToValidate)
         {
@@ -43,8 +43,7 @@ namespace Core.Validation
                 return CreateValidationResultFromException(objectToValidate, ex);
             }
         }
-
-
+        
         private static IEnumerable<ValidationMessage> FlattenError(Exception exception)
         {
             var messages = new List<ValidationMessage>();
