@@ -3,11 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.XPath;
+using Core.Common.Mapper.Config.Attribute;
 using Core.Log;
-using Core.Common.Mappers;
 using Ninject;
 
-namespace Core.Common.Mapper
+namespace Core.Common.Mapper.Config
 {
     /// <summary>
     /// Read and Writes to .net config (app.config/web.config) files

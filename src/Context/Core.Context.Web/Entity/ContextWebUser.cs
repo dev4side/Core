@@ -14,19 +14,29 @@ namespace Core.Context.Web.Entity
         public ContextWebUser(string identityName)
         {
             _membershipUser = Membership.GetUser(identityName);
-            if(_membershipUser == null)
+            
+            if (_membershipUser == null)
+            {
                 throw new ContextException("The user returned from the current context is null.");
+            }
         }
 
         public ContextWebUser()
         {
             IPrincipal currentUser = GetCurrentHttpContest().User;
             if (currentUser == null)
+            {
                 throw new ContextException("The user returned from the current context is null.");
+            }
+            
             //todo: TOGLIERE IL CONTROLLO SU NT!
             _membershipUser = Membership.GetUser(GetCurrentHttpContest().Request.LogonUserIdentity.Name.Contains("NT") ? "service" : currentUser.Identity.Name);
+
             if (_membershipUser == null)
-                throw new ContextException(String.Format("The user returned from the Membership with identity name {0} is null.", currentUser.Identity.Name));
+            {
+                throw new ContextException(
+                    String.Format("The user returned from the Membership with identity name {0} is null.", currentUser.Identity.Name));
+            }
         }
 
         #region IContextUser Members
@@ -38,7 +48,6 @@ namespace Core.Context.Web.Entity
         {
             get { return _membershipUser.UserName; }
         }
-
 
         public DateTime? LastLoginDate
         {
@@ -92,8 +101,12 @@ namespace Core.Context.Web.Entity
         private HttpContext GetCurrentHttpContest()
         {
             HttpContext currentHttpContest = HttpContext.Current;
+
             if (currentHttpContest == null)
+            {
                 throw new ContextException("Missing Current Http Contest.");
+            }
+
             return currentHttpContest;
         }
     }

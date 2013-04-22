@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Reflection;
 
-namespace Core.Common.Utils
+namespace Core.Common.Util
 {
 	/// <summary>
 	/// Helper class for working with 'extended' enums using <see cref="StringValueAttribute"/> attributes.

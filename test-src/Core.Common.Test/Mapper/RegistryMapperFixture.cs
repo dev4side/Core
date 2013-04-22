@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Core.Common.Mapper;
 using Core.Common.Mapper.Registry;
-using Core.Common.Mappers.Registry;
+using Core.Common.Mapper.Registry.Attribute;
 using Microsoft.Win32;
 using NUnit.Framework;
 

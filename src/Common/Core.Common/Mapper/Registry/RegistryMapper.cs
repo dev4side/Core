@@ -1,9 +1,9 @@
 ﻿using Core.Common.Converters;
-using Core.Common.Mapper.Registry;
-using Core.Common.Mappers.Registry;
+using Core.Common.Mapper.Registry.Attribute;
 using System;
+using Core.Common.Mapper.Registry.Exception;
 
-namespace Core.Common.Mapper
+namespace Core.Common.Mapper.Registry
 {
     /// <summary>
     /// Loads and saves dto's that are mapped to registry values throught MapToRegistryKeyAttributes

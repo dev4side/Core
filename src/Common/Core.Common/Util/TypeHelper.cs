@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Core.Common.Utils
+namespace Core.Common.Util
 {
 	public static class TypeHelperExtensions
 	{

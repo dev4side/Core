@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Common.Utils
+namespace Core.Common.Util
 {
     public static class EnumExtensions
     {

@@ -1,5 +1,6 @@
 using Core.Common.Mapper.Registry;
 using System;
+using Core.Common.Mapper.Registry.Attribute;
 
 namespace Core.Common.Converters
 {

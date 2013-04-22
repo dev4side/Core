@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Core.Common.Extensions
+namespace Core.Common.Extension
 {
     public static class TypeExtensions
     {

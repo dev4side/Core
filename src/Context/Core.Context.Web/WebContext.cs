@@ -63,8 +63,12 @@ namespace Core.Context.Web
         private HttpContext GetCurrentHttpContest()
         {
             HttpContext currentHttpContest = HttpContext.Current;
+
             if (currentHttpContest == null)
+            {
                 throw new ContextException("Missing Current Http Contest.");
+            }
+
             return currentHttpContest;
         }        
     }

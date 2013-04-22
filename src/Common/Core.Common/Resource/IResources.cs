@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Core.Common.Resources
+﻿namespace Core.Common.Resource
 {
     public interface IResources
     {

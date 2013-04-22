@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Common.Utils
+namespace Core.Common.Util
 {
     /// <summary>
     /// Simple attribute class for storing String Values

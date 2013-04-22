@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Core.Common.Extensions
+namespace Core.Common.Extension
 {
     public static class EnumExtensions
     {

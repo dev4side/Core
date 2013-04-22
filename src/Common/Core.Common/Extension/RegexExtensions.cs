@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Core.Common.Extensions
+namespace Core.Common.Extension
 {
     public static class RegexExtensions
     {

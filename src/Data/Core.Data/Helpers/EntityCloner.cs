@@ -9,6 +9,11 @@ namespace Core.Data.Helpers
     {
         public static T CloneAsNewEntity<T>(T entity) where T : new()
         {
+            if (entity.Equals(null))
+            {
+                throw new ArgumentNullException("entity");
+            }
+
             var entityType = typeof(T);
             var entityIstanceToReturn = (T)Activator.CreateInstance(entityType);
             var props = entityType.GetProperties();

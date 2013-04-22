@@ -1,4 +1,4 @@
-namespace Core.Common.Mapper.Registry
+namespace Core.Common.Mapper.Registry.Attribute
 {
     public enum RegistryConversion
     {

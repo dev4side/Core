@@ -1,10 +1,9 @@
-using Core.Common.Mapper.Registry;
 using System;
 
-namespace Core.Common.Mappers.Registry
+namespace Core.Common.Mapper.Registry.Attribute
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
-    public class MapToRegistryKeyPropertyAttribute: Attribute
+    public class MapToRegistryKeyPropertyAttribute: System.Attribute
     {
         public string Key { get; private set; }
         public string Path { get; private set; }

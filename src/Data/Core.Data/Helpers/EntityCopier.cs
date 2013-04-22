@@ -15,7 +15,12 @@ namespace Core.Data.Helpers
         /// </summary>
         public static T CopyEntity(T entityToCopy)
         {
-            T result = new T();
+            if (entityToCopy.Equals(null))
+            {
+                throw new ArgumentNullException("entityToCopy");
+            }
+
+            var result = new T();
             var resultType = result.GetType();
             foreach (var property in entityToCopy.GetType().GetProperties())
             {

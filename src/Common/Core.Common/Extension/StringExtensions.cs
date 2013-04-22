@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Core.Common.Extensions
+﻿namespace Core.Common.Extension
 {
     public static class StringExtensions
     {
