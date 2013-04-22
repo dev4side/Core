@@ -3,7 +3,7 @@
     /// <summary>
     /// contratto per definire un domain object del repository
     /// </summary>
-    public interface IDomainEntity<TKey>  // where TKey : IConvertible 
+    public interface IDomainEntity<TKey>
     {
         TKey Id { get; set; }
     }

@@ -47,6 +47,11 @@ namespace Core.Data.Objects
 
         public void Insert(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+
             try
             {
                 Log.Debug("Insert {0} with id: {1}", this.CurrentTypeName, entity.Id.ToString());
@@ -56,18 +61,28 @@ namespace Core.Data.Objects
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw ex;
+                throw;
             }
         }
 
         public void Update(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+
             Log.Debug("Update {0} with id: {1}", this.CurrentTypeName, entity.Id.ToString());
             this.UnitOfWork.Update(entity);
         }
 
         public void Delete(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+
             Log.Debug("Delete {0} id: {1}", this.CurrentTypeName, entity.Id.ToString());
             this.UnitOfWork.Delete(entity);
         }

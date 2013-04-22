@@ -9,7 +9,7 @@ namespace Core.Data.Helpers
     {
         public static T CloneAsNewEntity<T>(T entity) where T : new()
         {
-            if (entity.Equals(null))
+            if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
@@ -21,15 +21,21 @@ namespace Core.Data.Helpers
             foreach (PropertyInfo propertyInfo in props)
             {
                 if (propertyInfo.GetCustomAttributes(true).Contains(new CloneExcludeAttribute()))
+                {
                     continue;
+                }
                 var entityPropertyToFill = entityType.GetProperty(propertyInfo.Name);
+                
                 if (entityPropertyToFill == null)
+                {
                     continue;
+                }   
 
                 var pIstancePropertyValue = entityType.InvokeMember(propertyInfo.Name, BindingFlags.GetProperty, null, entity, null);
                 entityPropertyToFill.SetValue(entityIstanceToReturn, pIstancePropertyValue, null);
 
             }
+
             return entityIstanceToReturn;
         }
     }
