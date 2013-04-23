@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Attributes\ModuleLoadPriority.cs" />
     <Compile Include="Exceptions\DependencyInjectionException.cs" />
+    <Compile Include="Helpers\ModuleBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\AutoBinder.cs" />
     <Compile Include="ObjectFactory.cs" />
